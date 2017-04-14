@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate(models) {
-        // associations can be defined here
-        access.hasMany(models.Document, {
-          foreignKey: 'accessId'
-        });
+        // // associations can be defined here
+        // access.hasMany(models.document, {
+        //   foreignKey: 'accessId'
+        // });
       }
     },
     freezeTableName: true,
