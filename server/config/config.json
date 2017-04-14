@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "muna",
+    "username": "",
     "password": null,
-    "database": "docmansys",
+    "database": "document-management-system",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "muna",
+    "username": "",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "muna",
+    "username": "",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
