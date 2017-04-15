@@ -11,7 +11,7 @@
 // };
 
 import userRouter from './user';
-// import rolesRouter from './role';
-// import documentRouter from './Document';
+import searchRouter from './search';
+import documentRouter from './document';
 
-export { userRouter };
+export { userRouter, documentRouter, searchRouter };
