@@ -2,7 +2,8 @@ import db from '../models/index';
 
 const searchDoc = (req, res) => {
   if (req.query.q) {
-    db.sequelize.query(`SELECT * FROM "Documents" WHERE title LIKE '%${req.query.q}%'`)
+    db.sequelize.query(`SELECT * FROM "Documents" 
+    WHERE title LIKE '%${req.query.q}%'`)
       .then((result) => {
         res.status(200).json(result[0]);
       });
@@ -16,7 +17,8 @@ const searchDoc = (req, res) => {
 
 const searchUser = (req, res) => {
   if (req.query.q) {
-    db.sequelize.query(`SELECT * FROM "Users" AS "Users" WHERE username LIKE '%${req.query.q}%'`)
+    db.sequelize.query(`SELECT * FROM "Users" AS "Users" 
+    WHERE username LIKE '%${req.query.q}%'`)
       .then((result) => {
         res.status(200).json(result[0]);
       });

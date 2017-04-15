@@ -11,4 +11,3 @@ searchRouter.get('/api/v1/search/users', auth, isAdmin, searchUser);
 
 export default searchRouter;
 
-

@@ -1,47 +1,33 @@
 import express from 'express';
-import user from '../controllers/users';
-// import auth from '../middlewares/auth';
+import {
+  create,
+  findOne,
+  findAll,
+  updateUser,
+  deleteUser,
+  login,
+  getAllUserDocuments
+} from '../controllers/users';
+import auth from '../middlewares/auth';
+import { isAdmin, targetIsAdmin } from '../helpers/helper';
 
 const userRouter = express.Router();
 
-// landing page
-userRouter.route('/')
-  .get((req, res) => {
-    res.status(200).send({
-      message: 'Welcome to Document Management System API'
-    });
-  });
 
-// creates a new user
-userRouter.route('/users')
-  // .get(// auth, auth.validateSearch,
-  //      user.getAll
-  //      )
-  .post(user.create);
+userRouter.route('/api/v1/users')
+    .get(auth, isAdmin, findAll)
+    .post(create);
 
-// // logs in a user
-// userRouter.route('/users/login')
-//   .post(auth.validateLoginInput, user.login);
+userRouter.route('/api/v1/users/:id')
+    .all()
+    .get(auth, isAdmin, findOne)
+    .put(auth, isAdmin, targetIsAdmin, updateUser)
+    .delete(auth, isAdmin, targetIsAdmin, deleteUser);
 
-// // logs out a user
-// userRouter.route('/users/logout')
-//   .post(auth.verifyToken, user.logout);
+userRouter.post('/api/v1/users/login', login);
 
-// // Find user, update user attributes and delete user.
-// userRouter.route('/users/:id')
-//   .get(auth.verifyToken, auth.getSingleUser, user.getUser)
-//   .put(auth.verifyToken, auth.validateUserUpdate, user.update)
-//   .delete(auth.verifyToken,
-//     auth.hasAdminPermission,
-//     auth.validateDeleteUser,
-//     user.delete);
-
-// // Find all documents belonging to the user.
-// userRouter.route('/users/:id/documents')
-//   .get(auth.verifyToken, auth.validateSearch, user.findUserDocuments);
-
-// // Search for a user
-// userRouter.route('/search/users')
-//   .get(auth.verifyToken, auth.getUserName, user.getUserName);
+userRouter.get('/api/v1/users/:id/documents', auth, isAdmin,
+targetIsAdmin, getAllUserDocuments);
 
 export default userRouter;
+
