@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "",
+    "username": "Muna-Ugorji",
     "password": null,
     "database": "document-management-system",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "",
+    "username": "Muna-Ugorji",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
-    "username": "",
+    "username": "Muna-Ugorji",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
