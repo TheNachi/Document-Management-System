@@ -3,14 +3,14 @@ import db from '../models/index';
 import helper from '../helpers/error-render';
 
 const create = (req, res) => {
-  db.Users.create(req.body)
+  db.users.create(req.body)
     .then((result) => {
       res.status(200).json({
         user: result,
         token: jwt.sign({
           exp: Math.floor(Date.now() / 1000) + (60 * 60 * 3),
           data: result.id
-        }, process.env.JWT_SECRET)
+        }, 'secret')
       });
     })
     .catch((errors) => {
@@ -44,7 +44,7 @@ const findOne = (req, res) => {
   if (req.admin) {
     attr.attributes.push('password', 'createdAt', 'updatedAt');
   }
-  db.Users.findById(req.params.id, attr)
+  db.users.findById(req.params.id, attr)
     .then((user) => {
       res.status(200).json(user);
     }).catch((errors) => {
@@ -69,7 +69,7 @@ const findAll = (req, res) => {
     query.limit = req.query.limit || null;
     query.offset = req.query.offset || 0;
   }
-  db.Users.findAll(query)
+  db.users.findAll(query)
     .then((users) => {
       res.status(200).json(users);
     });
@@ -98,7 +98,7 @@ const updateUser = (req, res) => {
       ${(req.adminTarget) ? 'admin' : 'user'}`
     });
   }
-  db.Users.update(query, { where: {
+  db.users.update(query, { where: {
     id: req.params.id
   } }).then(() => {
     res.sendStatus(204);
@@ -124,7 +124,7 @@ const deleteUser = (req, res) => {
       message: 'you cannot delete another user'
     });
   }
-  db.Users.destroy({ where: {
+  db.users.destroy({ where: {
     id: req.params.id
   } }).then(() => {
     res.sendStatus(204);
@@ -142,7 +142,7 @@ const login = (req, res) => {
   if (req.body.email && req.body.password) {
     const email = req.body.email;
     const password = req.body.password;
-    db.Users.findOne({ where: { email } })
+    db.users.findOne({ where: { email } })
       .then((user) => {
         if (user) {
           if (user.isPassword(user.password, password)) {
