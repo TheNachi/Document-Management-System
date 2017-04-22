@@ -21,10 +21,10 @@ class Navbar extends Component {
           <div className="brand-logo">Document Management System</div>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li className={this.props.isLoginActive}>
-              <a href="#">Login</a>
+              <a href="login">Login</a>
             </li>
             <li className={this.props.isSignupActive}>
-              <a href="#">Signup</a>
+              <a href="app/signup">Signup</a>
             </li>
           </ul>
         </div>

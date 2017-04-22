@@ -10,6 +10,7 @@ class Index extends Component {
   render() {
     return (
       <Navbar isLoginActive="active" isSignupActive="" />
+      
     );
   }
 }
