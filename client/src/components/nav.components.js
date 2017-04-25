@@ -18,7 +18,7 @@ class Navbar extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <div className="brand-logo">Document Management System</div>
+          <div className="brand-logo"><a href="app/">Document Management System</a></div>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li className={this.props.isLoginActive}>
               <a href="login">Login</a>
