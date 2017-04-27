@@ -1,0 +1,18 @@
+.react-navbar {
+  padding-right: 0;
+}
+.navbar-right-element {
+  margin-bottom: 0;
+  .search-navbar {
+    padding: 0;
+    padding-right: 20px;
+  }
+  .navbar-right-buttons {
+    margin-top: 30px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .search-navbar {
+    display: none;
+  }
+}
