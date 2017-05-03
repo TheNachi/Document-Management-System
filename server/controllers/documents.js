@@ -2,7 +2,7 @@ import db from '../models/index';
 import errorRender from '../helpers/error-render';
 import { paginate } from '../helpers/helper';
 
-const Document = db.document;
+const Document = db.documents;
 
 const createDocument = (req, res) => {
   const id = req.decoded.id;

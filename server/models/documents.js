@@ -12,9 +12,9 @@ module.exports = (sequelize, DataType) => {
       allowNull: false
     },
     accessId: {
-      type: DataType.INTEGER,
+      type: DataType.STRING,
       allowNull: false,
-      defaultValue: 1
+      defaultValue: 'public'
     },
     ownerId: {
       type: DataType.INTEGER,

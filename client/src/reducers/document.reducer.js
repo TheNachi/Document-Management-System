@@ -12,6 +12,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'FETCHED_CURRENT_USER_DOCS': {
+      console.log(action.payload);
       return {
         ...state,
         data: action.payload,

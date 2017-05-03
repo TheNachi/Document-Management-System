@@ -63,6 +63,7 @@ class CreateDoc extends React.Component {
   handleSubmit(event) {
     event.persist();
     event.preventDefault();
+    console.log(this.state);
     this.props.onCreate(this.state);
     this.handleClose();
   }

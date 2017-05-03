@@ -45,7 +45,7 @@ const getAllUserDocuments = (req, res) => {
     query = { where: { ownerId: req.params.id, accessId: 1 } };
   }
   if (typeof query === 'object') {
-    db.document.findAll(query)
+    db.documents.findAll(query)
     .then((results) => {
       res.status(200).json(results);
     });

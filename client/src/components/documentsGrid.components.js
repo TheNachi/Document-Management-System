@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import DocCard from './docCard.components';
 import FolderCard from './folderCard.components';
-import CreateFolder from './createFolder.components';
+import CreateFolder from './documents/createFolder.components';
 import CreateDoc from './createDoc.components';
 import EditFolder from './editFolder.components';
 import DeleteDialog from './deleteDialog.components';
@@ -77,9 +77,7 @@ class DocumentGrid extends React.Component {
       <div className="content-display">
         <div className="row">
           <CreateFolder onCreate={ this.props.onFolderCreate } />
-          <CreateDoc
-            onCreate={ this.props.onDocCreate }
-          />
+          <CreateDoc onCreate={ this.props.onDocCreate } />
         </div>
         <EditFolder
           onEdit={ this.props.onUpdateFolder }

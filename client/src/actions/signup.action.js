@@ -21,6 +21,7 @@ export default function (signupData) {
         const decoded = jwt(response.data.token);
         window.localStorage.setItem('token', response.data.token);
         window.localStorage.setItem('user', JSON.stringify(decoded));
+        console.log(response.data);
         axios.defaults.headers.common.Authorization = response.data.token;
       })
       .catch((error) => {

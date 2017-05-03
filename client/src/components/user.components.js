@@ -96,6 +96,7 @@ class User extends React.Component {
    * @return {void}
    */
   handleCreateDoc(values) {
+     console.log(values);
     this.props.dispatch(createDoc(values));
   }
 
@@ -194,6 +195,7 @@ class User extends React.Component {
    * @return {void}
    */
   handleCreateFolder(values) {
+    
     this.props.dispatch(createFolder(values));
   }
 
@@ -234,6 +236,7 @@ class User extends React.Component {
    * @return {object} react element to render
    */
   render() {
+    console.log(this.props.docs);
     return (
       <div>
         <Navbar

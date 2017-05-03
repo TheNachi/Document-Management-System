@@ -2,12 +2,19 @@ import axios from 'axios';
 
 export function getAllUsers() {
   return (dispatch) => {
-    axios.get('/api/users')
+    axios.get('/api/users', {
+      headers: {
+        Authorization: window.getItem('token')
+      }
+    })
       .then((response) => {
         dispatch({
           type: 'GOT_ALL_USERS',
           payload: response.data
         });
+      })
+      .catch((error) => {
+        console.log(error.response);
       });
   };
 }
@@ -15,12 +22,19 @@ export function getAllUsers() {
 export function getUserDocs() {
   return (dispatch) => {
     const userId = JSON.parse(window.localStorage.getItem('user')).data.id;
-    axios.get(`/api/users/${userId}/documents`)
+    axios.get(`/api/users/${userId}/documents`, {
+      headers: {
+        Authorization: window.getItem('token')
+      }
+    })
       .then((response) => {
         dispatch({
           type: 'FETCHED_DOCUMENTS',
           payload: response.data
         });
+      })
+      .catch((error) => {
+        console.log(error.response);
       });
   };
 }
@@ -28,13 +42,20 @@ export function getUserDocs() {
 export function getUser() {
   return (dispatch) => {
     const userId = JSON.parse(window.localStorage.getItem('user')).data.id;
-    axios.get(`/api/users/${userId}`)
+    axios.get(`/api/users/${userId}`, {
+      headers: {
+        Authorization: window.localStorage.getItem('token')
+      }
+    })
       .then((response) => {
         dispatch({
           type: 'GOT_USER',
           payload: response.data
         });
-      });
+      })
+      .catch((error) => {
+        console.log(error.response.data);
+      })
   };
 }
 

@@ -3,19 +3,19 @@ export default (state = { isAuthenticated: false }, action) => {
     case 'LOGIN_USER': {
       return {
         ...state,
-        authenticated: true
+        isAuthenticated: true
       };
     }
     case 'LOGOUT_USER': {
       return {
         ...state,
-        authenticated: false
+        isAuthenticated: false
       };
     }
     case 'CREATE_USER': {
       return {
         ...state,
-        authenticated: true
+        isAuthenticated: true
       };
     }
     default: {

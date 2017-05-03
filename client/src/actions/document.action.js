@@ -25,15 +25,20 @@ export function getUserDocs() {
 * @return {object} - returns dispatch object based on response from server
 */
 export function createDoc(values) {
+  console.log(values);
+  delete values.open;
   return (dispatch) => {
+    console.log('values', values);
     axios.post('/api/documents', values)
       .then((response) => {
+        console.log(response);
         dispatch({
           type: 'CREATED_DOC',
           payload: response.data
         });
       })
       .catch((error) => {
+        console.log(error.response);
         dispatch({
           type: 'ERROR_CREATING_DOCUMENT',
           payload: error.response

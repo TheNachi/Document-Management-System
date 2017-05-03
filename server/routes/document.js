@@ -10,9 +10,8 @@ import auth from '../middlewares/auth';
 import cleanParam from '../middlewares/cleanParam';
 import { isAdmin } from '../helpers/helper';
 
-const router = express.Router();
+const documentRouter = express.Router();
 
-export default () => {
 /**
  * @swagger
  * definitions:
@@ -36,8 +35,7 @@ export default () => {
  *           type: integer
  *           format: int64
  */
-  router.route('/api/documents')
-    .all(auth)
+documentRouter.route('/api/documents')
     /** @swagger
       *  /api/v1/documents/?limit=4&offset=2:
       *   get:
@@ -60,7 +58,7 @@ export default () => {
       *            items:
       *              $ref: '#/definitions/Document'
       */
-    .get(isAdmin, cleanParam, findAllDocument)
+    .get(auth, isAdmin, cleanParam, findAllDocument)
 
     /**
      * @swagger
@@ -92,9 +90,9 @@ export default () => {
      *          items:
      *            $ref: '#/definitions/Document'
      */
-    .post(createDocument);
+    .post(auth, createDocument);
 
-  router.route('/api/documents/:id')
+documentRouter.route('/api/documents/:id')
     .all(auth, isAdmin)
     /** @swagger
       *  /api/v1/documents/:id:
@@ -118,7 +116,7 @@ export default () => {
       *            items:
       *              $ref: '#/definitions/Document'
       */
-    .get(findOneDocument)
+    .get(auth, findOneDocument)
 
     /**
      * @swagger
@@ -150,7 +148,7 @@ export default () => {
      *          items:
      *            $ref: '#/definitions/Document'
      */
-    .put(updateDocument)
+    .put(auth, updateDocument)
 
     /**
      * @swagger
@@ -175,6 +173,7 @@ export default () => {
      *            items:
      *              $ref: '#/definitions/Document'
      */
-    .delete(deleteDocument);
-  return router;
-};
+    .delete(auth, deleteDocument);
+
+export default documentRouter;
+
