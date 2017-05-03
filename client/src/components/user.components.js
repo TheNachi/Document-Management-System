@@ -238,19 +238,19 @@ class User extends React.Component {
       <div>
         <Navbar
          type="dark"
-         title="iAmDocuman"
+         title="Document Management System"
          isAuthenticated={ {
            username: this.props.user.users.details.username,
            userPage: '/app/dashboard'
          } }
-         showSignout={ false }
+         showSignout={ true }
          showSearch={ true }
          handleSearch={ this.handleSearch }
         />
         <div className="close-drawer">
         </div>
         <CustomDrawer
-          title="iAmDocuman"
+          title="Document Management System"
           showAll={ this.handleShowAll }
           showOnlyDoc={ this.handleShowOnlyDoc }
           id={ this.props.user.users.details.id }

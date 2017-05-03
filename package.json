@@ -4,7 +4,7 @@
   "description": "\"A full stack document management system, complete with roles and privileges\"",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon server.js --exec babel-node",
+    "start": "nodemon server.js --exec babel-node",
     "mocha": "mocha --compilers js:babel-core/register",
     "test": "NODE_ENV=test npm run mocha server/tests/**/*.js",
     "cover": "rm -rf coverage/ && NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec server/tests",
