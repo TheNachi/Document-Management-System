@@ -12,10 +12,10 @@ const style = {
   zindex: 20
 };
 
-const authenticated = props => (
+const isAuthenticated = props => (
   <div>
-    <Link to={props.authenticated.userPage} >
-      Hi {props.authenticated.username}!
+    <Link to={props.isAuthenticated.userPage} >
+      Hi {props.isAuthenticated.username}!
     </Link>
     <Link to={'/app/logout'} >
       <FlatButton
@@ -68,8 +68,8 @@ class Navbar extends React.Component {
         title={ this.props.title }
         onTitleTouchTap={ () => browserHistory.push('/app/') }
         iconElementRight={
-          (this.props.authenticated) ?
-            authenticated(this.props) : notAuthenticated(this.props)
+          (this.props.isAuthenticated) ?
+            isAuthenticated(this.props) : notAuthenticated(this.props)
         }
       />
     );
@@ -81,7 +81,7 @@ Navbar.defaultProps = {
   loginLink: '/login',
   showSignup: true,
   signupLink: '/signup',
-  authenticated: null,
+  isAuthenticated: null,
   title: window.location.origin.split('//')[1],
   style
 };
@@ -90,7 +90,7 @@ Navbar.propTypes = {
   title: PropTypes.string,
   loginLink: PropTypes.string,
   signupLink: PropTypes.string,
-  authenticated: PropTypes.object,
+  isAuthenticated: PropTypes.object,
   showLogin: PropTypes.bool,
   showSignup: PropTypes.bool
 };

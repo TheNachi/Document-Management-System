@@ -11,13 +11,18 @@ module.exports = {
         type: Sequelize.STRING
       },
       content: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       accessId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: 'public'
       },
       ownerId: {
         type: Sequelize.STRING
+      },
+      folderId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

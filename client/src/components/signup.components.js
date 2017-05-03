@@ -37,7 +37,7 @@ class Signup extends React.Component {
   componentDidMount() {
     this.clearError();
     if (window.localStorage.getItem('token')
-    || this.props.auth.authenticated) {
+    || this.props.auth.isAuthenticated) {
       browserHistory.push('/app/');
     }
   }
@@ -50,8 +50,8 @@ class Signup extends React.Component {
    * @return {void}
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.authenticated === true
-        && !this.props.auth.authenticated) {
+    if (nextProps.auth.isAuthenticated === true
+        && !this.props.auth.isAuthenticated) {
       browserHistory.push('/app/');
     }
   }

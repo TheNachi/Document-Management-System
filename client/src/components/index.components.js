@@ -3,6 +3,11 @@ import Navbar from './common/nav.components';
 
 class Index extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.currentUser = this.currentUser.bind(this);
+}
+
   currentUser() { //eslint-disable-line
     if (window.localStorage.getItem('token')) {
       return JSON.parse(window.localStorage.getItem('user')).data;
@@ -18,7 +23,7 @@ class Index extends React.Component {
           title="Document Management System"
           loginLink="/app/login"
           signupLink="/app/signup"
-          authenticated={
+          isAuthenticated={
             (this.currentUser()) ?
             {
               username: this.currentUser().username,

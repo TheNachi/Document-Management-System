@@ -24,7 +24,7 @@ class Logout extends React.Component {
    * @return {void}
    */
   componentWillReceiveProps(nextProps) {
-    if (!this.props.auth.authenticated) {
+    if (!this.props.auth.isAuthenticated) {
       browserHistory.push('/app/');
     }
   }

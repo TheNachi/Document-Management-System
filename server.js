@@ -7,6 +7,8 @@ const express = require('express');
 const parser = require('body-parser');
 const route = require('./server/routes');
 
+require('dotenv').config();
+
 const app = express();
 
 if (process.env.NODE_ENV !== 'production') {

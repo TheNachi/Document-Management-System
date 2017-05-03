@@ -13,5 +13,6 @@
 import userRouter from './user';
 import searchRouter from './search';
 import documentRouter from './document';
+import folderRouter from './folder';
 
-export { userRouter, documentRouter, searchRouter };
+export { userRouter, documentRouter, searchRouter, folderRouter };

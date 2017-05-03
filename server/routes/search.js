@@ -6,8 +6,8 @@ import { isAdmin } from '../helpers/helper';
 const searchRouter = express.Router();
 
 
-searchRouter.get('/api/v1/search/documents', auth, isAdmin, searchDoc);
-searchRouter.get('/api/v1/search/users', auth, isAdmin, searchUser);
+searchRouter.get('/api/search/documents', auth, isAdmin, searchDoc);
+searchRouter.get('/api/search/users', auth, isAdmin, searchUser);
 
 export default searchRouter;
 

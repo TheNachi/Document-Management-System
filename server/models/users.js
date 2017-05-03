@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+import bcrypt from 'bcrypt';
 
 module.exports = (sequelize, DataTypes) => {
   const users = sequelize.define('users', {
@@ -41,6 +41,13 @@ module.exports = (sequelize, DataTypes) => {
           if (!/[a-z]/i.test(value)) {
             throw new Error('firstname must contain letters');
           }
+        },
+        hasOneSymbol(value) {
+          if (value.replace(/[^-]/g, '').length > 1) {
+            throw new Error('firstname cannot have more than one -');
+          } else if (value.replace(/[^']/g, '').length > 1) {
+            throw new Error('firstname cannot have more than one \'');
+          }
         }
       }
     },
@@ -59,6 +66,13 @@ module.exports = (sequelize, DataTypes) => {
         hasLetters(value) {
           if (!/[a-z]/i.test(value)) {
             throw new Error('lastname must contain letters');
+          }
+        },
+        hasOneSymbol(value) {
+          if (value.replace(/[^-]/g, '').length > 1) {
+            throw new Error('lastname cannot have more than one -');
+          } else if (value.replace(/[^']/g, '').length > 1) {
+            throw new Error('lastname cannot have more than one \'');
           }
         }
       }
@@ -107,7 +121,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       beforeBulkUpdate(user) {
-        if (user.sttributes && user.attributes.password) {
+        if (users.sttributes && users.attributes.password) {
           const salt = bcrypt.genSaltSync();
           const password = user.attributes.password;
           user.attributes.password = bcrypt.hashSync(password, salt);
@@ -121,6 +135,13 @@ module.exports = (sequelize, DataTypes) => {
           onDelete: 'CASCADE'
         });
         users.hasMany(models.documents, {
+          foreignKey: {
+            name: 'ownerId',
+            allowNull: false,
+          },
+          onDelete: 'CASCADE'
+        });
+        users.hasMany(models.folders, {
           foreignKey: {
             name: 'ownerId',
             allowNull: false,
