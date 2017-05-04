@@ -80,6 +80,7 @@ class Signup extends React.Component {
       this.props.dispatch(validationError(validation));
     } else {
       this.props.dispatch(signupUser(values));
+      console.log(values, 'i am a value');
     }
   }
 

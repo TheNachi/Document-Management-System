@@ -5,7 +5,6 @@ module.exports = {
   up(queryInterface) {
     return queryInterface.bulkInsert('users', [
       {
-        id: 1,
         username: faker.internet.userName(),
         firstname: faker.name.firstName(),
         lastname: faker.name.lastName(),
@@ -15,7 +14,6 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
-        id: 2,
         username: faker.internet.userName(),
         firstname: faker.name.firstName(),
         lastname: faker.name.lastName(),
@@ -25,7 +23,9 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       }
-    ], {});
+    ], {
+      returning: true
+    });
   },
 
   down(queryInterface) {

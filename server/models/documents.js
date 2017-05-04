@@ -14,7 +14,7 @@ module.exports = (sequelize, DataType) => {
     accessId: {
       type: DataType.STRING,
       allowNull: false,
-      defaultValue: 'public'
+      defaultValue: 1
     },
     ownerId: {
       type: DataType.INTEGER,
@@ -27,12 +27,9 @@ module.exports = (sequelize, DataType) => {
           foreignKey: 'ownerId',
           onDelete: 'CASCADE'
         });
-        documents.belongsTo(models.folders, {
-          foreignKey: 'folderId',
-          onDelete: 'CASCADE'
-        });
         documents.belongsTo(models.access, {
-          foreignKey: 'accessId'
+          foreignKey: 'accessId',
+          onDelete: 'CASCADE'
         });
       }
     }

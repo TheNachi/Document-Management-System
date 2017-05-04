@@ -15,13 +15,11 @@ module.exports = {
         allowNull: false
       },
       accessId: {
-        type: Sequelize.STRING,
-        defaultValue: 'public'
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1
       },
       ownerId: {
-        type: Sequelize.STRING
-      },
-      folderId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

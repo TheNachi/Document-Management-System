@@ -8,9 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate(models) {
         // // associations can be defined here
-        // access.hasMany(models.document, {
-        //   foreignKey: 'accessId'
-        // });
+        access.hasMany(models.documents, {
+          foreignKey: 'accessId',
+          onDelete: 'CASCADE'
+        });
       }
     },
     freezeTableName: true,

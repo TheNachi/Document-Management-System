@@ -16,16 +16,3 @@ export const signup = (req, res, next) => {
   }
   next();
 };
-
-export const folders = (req, res, next) => {
-  const emptyField = requiredField([
-    'title'
-  ], req.body);
-  if (emptyField) {
-    return res.status(400).json({
-      error_code: 'notNull Violation',
-      message: emptyField
-    });
-  }
-  next();
-};

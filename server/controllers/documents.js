@@ -8,11 +8,13 @@ const createDocument = (req, res) => {
   const id = req.decoded.id;
   const body = req.body;
   body.ownerId = id;
+  console.log('[line 8 doc controller]', body);
   Document.create(body)
     .then((result) => {
       res.status(200).json(result);
     }).catch((errors) => {
       const error = errorRender(errors);
+      console.log(errors);
       res.status(error.status)
         .json({
           error_code: error.error_code,
@@ -29,7 +31,7 @@ const findAllDocument = (req, res) => {
     query = { where: { accessId: 1 } };
   }
   if (req.query) {
-    limit = req.query.limit || 100;
+    limit = req.query.limit || 10;
     offset = req.query.offset || 0;
   }
   Document.findAll(query)

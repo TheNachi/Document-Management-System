@@ -25,32 +25,13 @@ class DocumentGrid extends React.Component {
   }
 
   /**
-   * renderFolders
-   * @param {Array} folders - folders data retrieved from endpoint
-   * @return {Array} mapped folders
-   */
-  renderFolders(folders) {
-    const self = this;
-    return folders.map((folder, index) =>
-      (
-        <div className="col s4 m3 l2" key={`root-div-${folder.title} ${index}`}>
-          <FolderCard
-            title={ folder.title }
-            key={ folder.title + index }
-            id={ folder.id }
-            onDelete={ self.props.onConfirmFolderDelete }
-            onEdit={ self.props.onEditFolder }
-            />
-        </div>));
-  }
-
-  /**
    * renderDocs
    * @param {Array} documents - documents data retrieved from endpoint
    * @return {Array} mapped documents
    */
   renderDocs(documents) {
     const self = this;
+    console.log(documents);
     return documents.map((doc, index) => (
       (doc.folderId === null || self.props.showOnlyDoc) ?
         <div className="col s4 m3 l2" key={`root-div-${doc.title} ${index}`}>
@@ -100,12 +81,7 @@ class DocumentGrid extends React.Component {
         <hr />
         <div className="row ">
           {
-            (this.props.folders && !this.props.views.showOnlyDoc) ?
-              this.renderFolders(this.props.folders)
-              : ''
-          }
-          {
-            (this.props.docs && !this.props.views.showOnlyFolder) ?
+            (this.props.docs) ?
               this.renderDocs(this.props.docs)
               : ''
           }
