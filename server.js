@@ -19,9 +19,9 @@ if (process.env.NODE_ENV !== 'test') {
   }));
   app.use(webpackHotMiddleware(compiler));
 }
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, 'client/')));
 app.get('/app/*', (req, res) => {
-  res.sendFile(`${__dirname}/client/dist/index.html`);
+  res.sendFile(`${__dirname}/client/index.html`);
 });
 
 const port = process.env.PORT || 4000;
@@ -30,7 +30,7 @@ app.use(parser.urlencoded({ extended: true }));
 app.use(parser.json());
 
 app.use('/', route.userRouter);
-app.use('/', route.searchRouter);
+app.use('/', route.roleRouter);
 app.use('/', route.documentRouter);
 
 app.listen(port, () => {

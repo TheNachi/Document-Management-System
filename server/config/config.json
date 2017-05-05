@@ -9,7 +9,7 @@
   "test": {
     "username": "Muna-Ugorji",
     "password": null,
-    "database": "database_test",
+    "database": "document-management-system-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

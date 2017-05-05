@@ -1,6 +1,6 @@
 module.exports = {
   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('documents', {
+    return queryInterface.createTable('Documents', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,19 +8,34 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       content: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-      accessId: {
-        type: Sequelize.INTEGER,
         allowNull: false,
-        defaultValue: 1
+        type: Sequelize.TEXT
       },
-      ownerId: {
-        type: Sequelize.INTEGER
+      OwnerId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Users',
+          key: 'id',
+          as: 'OwnerId'
+        }
+      },
+      RoleId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Roles',
+          key: 'id',
+          as: 'RoleId'
+        }
+      },
+      access: {
+        defaultValue: 'public',
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -32,7 +47,7 @@ module.exports = {
       }
     });
   },
-  down(queryInterface /* , Sequelize*/) {
-    return queryInterface.dropTable('documents');
+  down(queryInterface) {
+    return queryInterface.dropTable('Documents');
   }
 };

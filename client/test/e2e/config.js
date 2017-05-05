@@ -1,4 +1,3 @@
 module.exports = {
-  url: 'http://localhost:5000/app/',
-  rootUrl: 'http://localhost:5000/'
+  url: 'http://localhost:3000',
 };

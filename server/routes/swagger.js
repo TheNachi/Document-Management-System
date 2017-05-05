@@ -1,7 +1,7 @@
 import swaggerJSDoc from 'swagger-jsdoc';
 import express from 'express';
 
-const router = express.Router();
+const swaggerRouter = express.Router();
 
   // swagger definition
 const swaggerDefinition = {
@@ -23,14 +23,12 @@ const options = {
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);
 
-module.exports = () => {
-  router.get('/swagger.json', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
-    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, OPTIONS');
-    res.send(swaggerSpec);
-  });
+swaggerRouter.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
+  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, OPTIONS');
+  res.send(swaggerSpec);
+});
 
-  return router;
-};
+export default swaggerRouter;

@@ -1,117 +1,174 @@
-import db from '../models/index';
-import errorRender from '../helpers/error-render';
-import { paginate } from '../helpers/helper';
+import { User, Document } from '../models';
 
-const Document = db.documents;
+export default {
 
-const createDocument = (req, res) => {
-  const id = req.decoded.id;
-  const body = req.body;
-  body.ownerId = id;
-  console.log('[line 8 doc controller]', body);
-  Document.create(body)
-    .then((result) => {
-      res.status(200).json(result);
-    }).catch((errors) => {
-      const error = errorRender(errors);
-      console.log(errors);
-      res.status(error.status)
-        .json({
-          error_code: error.error_code,
-          message: error.message
-        });
+  /**
+   * Create a document
+   * Route: POST: /documents
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void} no returns
+   */
+  create(req, res) {
+    const { title, content, access } = req.body;
+    const OwnerId = req.decoded.UserId;
+    const RoleId = req.decoded.RoleId;
+    Document.create({ title, content, access, OwnerId, RoleId })
+      .then((document) => {
+        res.status(201).send(document);
+      })
+      .catch((err) => {
+        res.status(400).send(err.errors);
+      });
+  },
+
+  /**
+   * Get all documents
+   * Route: GET: /documents
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void} no returns
+   */
+  list(req, res) {
+    const query = {
+      where: {
+        $or: [
+          { access: 'public' },
+          { OwnerId: req.decoded.UserId },
+        ]
+      },
+      limit: req.query.limit || null,
+      offset: req.query.offset || null,
+      order: [['createdAt', 'DESC']]
+    };
+
+    Document.findAll(query).then((documents) => {
+      res.send(documents);
     });
-};
+  },
 
-const findAllDocument = (req, res) => {
-  let query, limit, offset;
-  if (req.admin) {
-    query = { where: {} };
-  } else {
-    query = { where: { accessId: 1 } };
-  }
-  if (req.query) {
-    limit = req.query.limit || 10;
-    offset = req.query.offset || 0;
-  }
-  Document.findAll(query)
-    .then(documents => res.status(200).json(
-      paginate(limit, offset, documents, 'documents')));
-};
+  /**
+   * Get a particular document
+   * Route: GET: /documents/:id
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void|Response} response object or void
+   */
+  retrieve(req, res) {
+    Document.findById(req.params.id)
+      .then((document) => {
+        if (!document) {
+          return res.status(404)
+            .send({ message: `Document with id: ${req.params.id} not found` });
+        }
 
-const findOneDocument = (req, res) => {
-  const id = req.decoded.id;
-  Document.findById(req.params.id)
-    .then((document) => {
-      if (id === document.ownerId
-          || req.admin
-          || document.accessId === 1) {
-        res.status(200).json(document);
-      } else {
-        res.status(401).json({
-          error_code: 'Unauthorized',
-          message: 'You don\'t have permission to view this document'
-        });
-      }
-    }).catch((errors) => {
-      const error = errorRender(errors);
-      res.status(error.status)
-        .json({
-          error_code: error.error_code,
-          message: error.message
-        });
-    });
-};
+        if ((document.access === 'public') ||
+          (document.OwnerId === req.decoded.UserId)) {
+          return res.send(document);
+        }
 
-const updateDocument = (req, res) => {
-  const id = req.decoded.id;
-  Document.findById(req.params.id)
-    .then((document) => {
-      if (!document) {
-        return res.status(404).json({
-          message: 'document not found'
-        });
-      }
-      if (document.ownerId === id) {
+        User.findById(document.OwnerId)
+          .then((owner) => {
+            if (owner.RoleId === req.decoded.RoleId) {
+              return res.send(document);
+            }
+
+            res.status(403)
+              .send({ message: 'You cannot access this document.' });
+          });
+      });
+  },
+
+  /**
+   * Update a particular document
+   * Route: PUT: /documents/:id
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  update(req, res) {
+    Document.findById(req.params.id)
+      .then((document) => {
+        if (!document) {
+          return res.status(404)
+            .send({ message: `Document with id: ${req.params.id} not found` });
+        }
+
         document.update(req.body)
-          .then(() => {
-            res.sendStatus(204);
-          }).catch(() => {
-            res.sendStatus(400);
+          .then((updatedDocument) => {
+            res.send(updatedDocument);
+          }).catch((err) => {
+            res.status(400).send(err);
           });
-      } else {
-        res.status(401).json({
-          error_code: 'Unauthorized',
-          message: 'You don\'t have permission to update this document'
-        });
-      }
-    });
-};
+      });
+  },
 
-const deleteDocument = (req, res) => {
-  const id = req.body.ownerId || req.decoded.id;
-  Document.findById(req.params.id)
-    .then((document) => {
-      if (document.ownerId === id || req.admin) {
+  /**
+   * Delete a particular document
+   * Route: DELETE: /documents/:id
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  destroy(req, res) {
+    Document.findById(req.params.id)
+      .then((document) => {
+        if (!document) {
+          return res.status(404)
+            .send({ message: `Document with id: ${req.params.id} not found` });
+        }
         document.destroy()
-          .then(() => {
-            res.sendStatus(204);
-          }).catch(() => {
-            res.sendStatus(400);
-          });
-      } else {
-        res.status(401).json({
-          error_code: 'Unauthorized',
-          message: 'You don\'t have permission to delete this document'
-        });
-      }
-    });
-};
+          .then(() => res.send({ message: 'Document deleted successfully.' }));
+      });
+  },
 
-export {
-  createDocument,
-  findAllDocument,
-  findOneDocument,
-  updateDocument,
-  deleteDocument
+  /**
+   * Get all documents that belongs to a user
+   * Route: GET: /users/:id/documents
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void} no returns
+   */
+  userDocuments(req, res) {
+    Document.findAll({ where: { OwnerId: req.params.id } })
+      .then((documents) => {
+        res.send(documents);
+      });
+  },
+
+  /**
+   * Search for documents by title
+   * Route: GET: /search/documents?q={title}
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void} no returns
+   */
+  search(req, res) {
+    const queryString = req.query.q;
+    const query = {
+      where: {
+        $and: [{ $or: [
+          { access: 'public' },
+          { OwnerId: req.decoded.UserId },
+        ],
+        }],
+      },
+      limit: req.query.limit || null,
+      offset: req.query.offset || null,
+      order: [['createdAt', 'DESC']]
+    };
+
+    if (queryString) {
+      query.where.$and.push({ $or: [
+        { title: { $iLike: `%${queryString}%` } },
+      ] });
+    }
+
+    Document.findAll(query)
+      .then((documents) => {
+        res.send(documents);
+      }).catch((err) => {
+        res.status(400).send(err);
+      });
+  }
 };

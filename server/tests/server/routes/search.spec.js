@@ -88,9 +88,9 @@ describe('Routes: search', () => {
       });
   });
 
-  describe('GET /api/v1/search/users/?q={String}', () => {
+  describe('GET /api/search/users/?q={String}', () => {
     it('should fetch the user that was searched for', (done) => {
-      request.get(`/api/v1/search/users/?q=${usernames.regular[0]}`)
+      request.get(`/api/search/users/?q=${usernames.regular[0]}`)
         .set('Authorization', tokens.regular[1])
         .expect(200)
         .end((err, res) => {
@@ -100,7 +100,7 @@ describe('Routes: search', () => {
     });
     it('should return a not found error if no user matches username',
       (done) => {
-        request.get(`/api/v1/search/users/?q=-65${usernames.regular[0]}`)
+        request.get(`/api/search/users/?q=-65${usernames.regular[0]}`)
           .set('Authorization', tokens.regular[1])
           .expect(404)
           .end((err, res) => {
@@ -109,9 +109,9 @@ describe('Routes: search', () => {
           });
       });
   });
-  describe('GET /api/v1/search/documents/?q={String}', () => {
+  describe('GET /api/search/documents/?q={String}', () => {
     it('should fetch the document that was searched for', (done) => {
-      request.get(`/api/v1/search/documents/?q=${doctitle}`)
+      request.get(`/api/search/documents/?q=${doctitle}`)
         .set('Authorization', tokens.regular[1])
         .expect(200)
         .end((err, res) => {
@@ -121,7 +121,7 @@ describe('Routes: search', () => {
     });
     it('should return a not found error if no document matches title',
       (done) => {
-        request.get(`/api/v1/search/documents/?q=-65${doctitle}`)
+        request.get(`/api/search/documents/?q=-65${doctitle}`)
           .set('Authorization', tokens.regular[1])
           .expect(404)
           .end((err, res) => {

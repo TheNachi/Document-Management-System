@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
-    './client/src/index'
+    './client/index'
   ],
   module: {
     loaders: [
@@ -60,5 +60,9 @@ module.exports = {
       $: 'jquery',
       JQuery: 'jquery'
     })
-  ]
+  ],
+  node: {
+    net: 'empty',
+    dns: 'empty'
+  }
 };

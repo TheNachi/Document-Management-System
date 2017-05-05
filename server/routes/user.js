@@ -1,16 +1,7 @@
 import express from 'express';
-import {
-  create,
-  findOne,
-  findAll,
-  updateUser,
-  deleteUser,
-  login,
-  getAllUserDocuments
-} from '../controllers/users';
-import getRole from '../middlewares/checkRoles';
+import usersController from '../controllers/users';
+import documentsController from '../controllers/documents';
 import auth from '../middlewares/auth';
-import { isAdmin, targetIsAdmin } from '../helpers/helper';
 
 const userRouter = express.Router();
 
@@ -75,7 +66,7 @@ userRouter.route('/')
  *
  */
 
-userRouter.route('/api/users')
+userRouter.route('/users')
     /**
      * @swagger
      * /api/v1/users:
@@ -121,7 +112,7 @@ userRouter.route('/api/users')
      *            items:
      *              $ref: '#/definitions/User'
      */
-    .get(auth, isAdmin, findAll)
+    .get(auth.verifyToken, auth.permitAdmin, usersController.list)
     /**
      * @swagger
      * /api/v1/users:
@@ -147,9 +138,9 @@ userRouter.route('/api/users')
      *          items:
      *            $ref: '#/definitions/User'
      */
-    .post(create);
+    .post(usersController.create);
 
-userRouter.route('/api/users/:id')
+userRouter.route('/users/:id')
     .all()
   /**
    * @swagger
@@ -174,7 +165,7 @@ userRouter.route('/api/users/:id')
    *            items:
    *              $ref: '#/definitions/User'
    */
-    .get(auth, isAdmin, findOne)
+    .get(auth.verifyToken, usersController.retrieve)
     /**
      * @swagger
      * /api/v1/users/1:
@@ -205,7 +196,7 @@ userRouter.route('/api/users/:id')
      *          items:
      *            $ref: '#/definitions/User'
      */
-    .put(auth, isAdmin, targetIsAdmin, updateUser)
+    .put(auth.verifyToken, usersController.update)
 
     /**
      * @swagger
@@ -230,7 +221,7 @@ userRouter.route('/api/users/:id')
      *            items:
      *              $ref: '#/definitions/User'
      */
-    .delete(auth, isAdmin, targetIsAdmin, deleteUser);
+    .delete(auth.verifyToken, usersController.destroy);
 
   /**
    * @swagger
@@ -262,7 +253,8 @@ userRouter.route('/api/users/:id')
    *          items:
    *            $ref: '#/definitions/Login'
    */
-userRouter.post('/api/users/login', login);
+userRouter.route('/users/login')
+      .post(usersController.login);
 
   /**
    * @swagger
@@ -285,7 +277,11 @@ userRouter.post('/api/users/login', login);
    *          schema:
    *            type: array
    */
-userRouter.get('/api/users/:id/documents',
-    auth, isAdmin, targetIsAdmin, getRole, getAllUserDocuments);
+userRouter.route('/users/:id/documents')
+    .get(auth.verifyToken, documentsController.userDocuments);
+userRouter.route('/search/users')
+    .get(auth.verifyToken, usersController.search);
+userRouter.route('/users/logout')
+    .post(usersController.logout);
 
 export default userRouter;

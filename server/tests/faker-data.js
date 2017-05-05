@@ -3,7 +3,6 @@ import bcrypt from 'bcrypt';
 
 const fakeData = {
   valid_user: {
-    id: 21,
     firstname: faker.name.firstName(),
     lastname: faker.name.lastName(),
     username: 'usernam_e1',

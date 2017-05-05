@@ -1,27 +1,32 @@
 import jwt from 'jsonwebtoken';
+import config from '../config';
+import { Role } from '../models';
 
-require('dotenv').config();
+export default {
+  verifyToken(req, res, next) {
+    const token = req.headers.authorization || req.headers['x-access-token'];
+    if (!token) {
+      return res.status(401).send({ message: 'Unauthorized Access' });
+    }
 
-export default (req, res, next) => {
-  const token = req.headers.authorization;
-  console.log(req.headers);
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    jwt.verify(token, config.jwtSecret, (err, decoded) => {
       if (err) {
-        console.log('herererere');
-        res.status(401).send({
-          error_code: 'Unauthorized',
-          message: 'Sorry you don\'t have permission to perform this operation'
-        });
-      } else {
-        req.decoded = decoded.data;
-        next();
+        return res.status(401).send({ message: 'Invalid Token' });
       }
+      req.decoded = decoded;
+      next();
     });
-  } else {
-    return res.status(403).send({
-      error_code: 'Unauthorized',
-      message: 'Sorry you don\'t have permission to perform this operation'
-    });
+  },
+
+  permitAdmin(req, res, next) {
+    Role.findById(req.decoded.RoleId)
+      .then((role) => {
+        if (role.title === 'admin') {
+          next();
+        } else {
+          return res.status(403).send({ message: 'You are not an admin' });
+        }
+      });
   }
 };
+

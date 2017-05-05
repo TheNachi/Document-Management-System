@@ -1,6 +1,6 @@
 module.exports = {
   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -8,28 +8,38 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
+        allowNull: false,
+        unique: true,
         type: Sequelize.STRING
       },
-      firstname: {
+      firstName: {
+        allowNull: false,
         type: Sequelize.STRING
       },
-      lastname: {
+      lastName: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING,
+        allowNull: false,
         unique: true,
-        validators: {
+        type: Sequelize.STRING,
+        validate: {
           isEmail: true
         }
       },
-      roleId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 2
-      },
       password: {
+        allowNull: false,
         type: Sequelize.STRING
+      },
+      RoleId: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Roles',
+          key: 'id',
+          as: 'RoleId'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -41,8 +51,7 @@ module.exports = {
       }
     });
   },
-  down(queryInterface /* , Sequelize*/) {
-    return queryInterface.dropTable('users');
+  down(queryInterface) {
+    return queryInterface.dropTable('Users');
   }
 };
-

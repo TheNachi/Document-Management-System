@@ -1,14 +1,6 @@
 import express from 'express';
-import {
-  createDocument,
-  findAllDocument,
-  findOneDocument,
-  updateDocument,
-  deleteDocument
-} from '../controllers/documents';
+import documentsController from '../controllers/documents';
 import auth from '../middlewares/auth';
-import cleanParam from '../middlewares/cleanParam';
-import { isAdmin } from '../helpers/helper';
 
 const documentRouter = express.Router();
 
@@ -35,7 +27,7 @@ const documentRouter = express.Router();
  *           type: integer
  *           format: int64
  */
-documentRouter.route('/api/documents')
+documentRouter.route('/documents')
     /** @swagger
       *  /api/v1/documents/?limit=4&offset=2:
       *   get:
@@ -58,7 +50,7 @@ documentRouter.route('/api/documents')
       *            items:
       *              $ref: '#/definitions/Document'
       */
-    .get(auth, isAdmin, cleanParam, findAllDocument)
+    .get(auth.verifyToken, documentsController.list)
 
     /**
      * @swagger
@@ -90,10 +82,9 @@ documentRouter.route('/api/documents')
      *          items:
      *            $ref: '#/definitions/Document'
      */
-    .post(auth, createDocument);
+    .post(auth.verifyToken, documentsController.create);
 
-documentRouter.route('/api/documents/:id')
-    .all(auth, isAdmin)
+documentRouter.route('/documents/:id')
     /** @swagger
       *  /api/v1/documents/:id:
       *   get:
@@ -116,7 +107,7 @@ documentRouter.route('/api/documents/:id')
       *            items:
       *              $ref: '#/definitions/Document'
       */
-    .get(auth, findOneDocument)
+    .get(auth.verifyToken, documentsController.retrieve)
 
     /**
      * @swagger
@@ -148,7 +139,7 @@ documentRouter.route('/api/documents/:id')
      *          items:
      *            $ref: '#/definitions/Document'
      */
-    .put(auth, updateDocument)
+    .put(auth.verifyToken, documentsController.update)
 
     /**
      * @swagger
@@ -173,7 +164,10 @@ documentRouter.route('/api/documents/:id')
      *            items:
      *              $ref: '#/definitions/Document'
      */
-    .delete(auth, deleteDocument);
+    .delete(auth.verifyToken, documentsController.destroy);
+
+documentRouter.route('/search/documents')
+    .get(auth.verifyToken, documentsController.search);
 
 export default documentRouter;
 

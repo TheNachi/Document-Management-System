@@ -97,9 +97,9 @@ describe('Routes: user', () => {
           });
       });
   });
-  describe('POST /api/v1/users', () => {
+  describe('POST /api/users', () => {
     it('creates a new user', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.create_valid_user)
         .expect(200)
         .end((err, res) => {
@@ -120,7 +120,7 @@ describe('Routes: user', () => {
     it('should reject request if roleId if is found in request', (done) => {
       const req = faker.valid_user;
       req.roleId = 1;
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(req)
         .expect(400)
         .end((err, res) => {
@@ -129,7 +129,7 @@ describe('Routes: user', () => {
         });
     });
     it('rejects requests without an email field', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.no_email_user)
         .expect(400)
         .end((err, res) => {
@@ -139,7 +139,7 @@ describe('Routes: user', () => {
         });
     });
     it('rejects requests without an incorrect email field', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.invalid_email_user)
         .expect(400)
         .end((err, res) => {
@@ -149,7 +149,7 @@ describe('Routes: user', () => {
         });
     });
     it('rejects requests without a firstname field', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.no_firstname_user)
         .expect(400)
         .end((err, res) => {
@@ -160,7 +160,7 @@ describe('Routes: user', () => {
     });
     it('rejects request if firstname field contains anything but letters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send(faker.symbol_firstname_user)
           .expect(400)
           .end((err, res) => {
@@ -172,7 +172,7 @@ describe('Routes: user', () => {
       });
     it('rejects request if firstname field does not contain letters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send(faker.noletter_firstname_user)
           .expect(400)
           .end((err, res) => {
@@ -182,7 +182,7 @@ describe('Routes: user', () => {
           });
       });
     it('rejects requests if firstname contains more than one "\'"', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.firstname_more_quote)
         .expect(400)
         .end((err, res) => {
@@ -192,7 +192,7 @@ describe('Routes: user', () => {
         });
     });
     it('rejects requests if firstname contains more than one "-"', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.firstname_more_hyphen)
         .expect(400)
         .end((err, res) => {
@@ -203,7 +203,7 @@ describe('Routes: user', () => {
     });
     it('rejects request if firstname field is greater than 16 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send(faker.long_firstname_user)
           .expect(400)
           .end((err, res) => {
@@ -218,7 +218,7 @@ describe('Routes: user', () => {
       });
     it('rejects request if firstname field is less than 2 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send(faker.short_firstname_user)
           .expect(400)
           .end((err, res) => {
@@ -233,7 +233,7 @@ describe('Routes: user', () => {
           });
       });
     it('rejects requests without a lastname field', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.no_lastname_user)
         .expect(400)
         .end((err, res) => {
@@ -244,7 +244,7 @@ describe('Routes: user', () => {
     });
     it('rejects request if lastname field contains anything but letters and/or \' and -',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send(faker.symbol_lastname_user)
           .expect(400)
           .end((err, res) => {
@@ -256,7 +256,7 @@ describe('Routes: user', () => {
       });
     it('rejects request if lastname field does not contain letters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'O\'hara',
             lastname: '-\'',
@@ -272,7 +272,7 @@ describe('Routes: user', () => {
           });
       });
     it('rejects requests if lastname contains more than one "\'"', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.lastname_more_quote)
         .expect(400)
         .end((err, res) => {
@@ -282,7 +282,7 @@ describe('Routes: user', () => {
         });
     });
     it('rejects requests if lastname contains more than one "-"', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send(faker.lastname_more_hyphen)
         .expect(400)
         .end((err, res) => {
@@ -293,7 +293,7 @@ describe('Routes: user', () => {
     });
     it('rejects request if lastname field is greater than 16 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'Rhett',
             lastname: 'O\'HaraButtlerScarlett',
@@ -312,7 +312,7 @@ describe('Routes: user', () => {
       });
     it('rejects request if lastname field is less than 2 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'Rhett',
             lastname: 'B',
@@ -331,7 +331,7 @@ describe('Routes: user', () => {
           });
       });
     it('rejects requests without a username field', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send({
           firstname: 'Rhett',
           lastname: 'Butler',
@@ -347,7 +347,7 @@ describe('Routes: user', () => {
     });
     it('rejects requests if username field is less than 4 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'Rhett',
             lastname: 'Butler',
@@ -366,7 +366,7 @@ describe('Routes: user', () => {
       });
     it('rejects requests if username field is greater than 16 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'Rhett',
             lastname: 'Pool',
@@ -385,7 +385,7 @@ describe('Routes: user', () => {
       });
     it('rejects request if username field contains symbols except _ and .',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'Rhett',
             lastname: 'Butler',
@@ -403,7 +403,7 @@ describe('Routes: user', () => {
           });
       });
     it('rejects requests without a password field', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send({
           firstname: 'Rhett',
           lastname: 'Butler',
@@ -420,7 +420,7 @@ describe('Routes: user', () => {
     });
     it('rejects requests if password field is less than 8 characters',
       (done) => {
-        request.post('/api/v1/users')
+        request.post('/api/users')
           .send({
             firstname: 'Rhett',
             lastname: 'Butler',
@@ -437,7 +437,7 @@ describe('Routes: user', () => {
           });
       });
     it('rejects request if email already exists', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send({
           lastname: 'John',
           username: 'depp',
@@ -453,7 +453,7 @@ describe('Routes: user', () => {
         });
     });
     it('rejects request if username already exists', (done) => {
-      request.post('/api/v1/users')
+      request.post('/api/users')
         .send({
           lastname: 'John',
           username: 'tommyrid',
@@ -469,9 +469,9 @@ describe('Routes: user', () => {
         });
     });
   });
-  describe('GET /api/v1/users/:id', () => {
+  describe('GET /api/users/:id', () => {
     it('should return a user\'s basic data if not admin', (done) => {
-      request.get(`/api/v1/users/${fakeUID.id}`)
+      request.get(`/api/users/${fakeUID.id}`)
         .set('Authorization', token)
         .expect(200)
         .end((err, res) => {
@@ -482,7 +482,7 @@ describe('Routes: user', () => {
         });
     });
     it('should return all users data if admin', (done) => {
-      request.get(`/api/v1/users/${fakeUID.id}`)
+      request.get(`/api/users/${fakeUID.id}`)
         .set('Authorization', adminToken)
         .expect(200)
         .end((err, res) => {
@@ -493,7 +493,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject an unauthorized user', (done) => {
-      request.get(`/api/v1/users/${fakeUID.id}`)
+      request.get(`/api/users/${fakeUID.id}`)
         .set('Authorization', `JW ${token}`)
         .expect(401)
         .end((err, res) => {
@@ -503,10 +503,10 @@ describe('Routes: user', () => {
         });
     });
   });
-  describe('GET /api/v1/users', () => {
+  describe('GET /api/users', () => {
     it('should get and return all users with default limit of 10 per page',
     (done) => {
-      request.get('/api/v1/users')
+      request.get('/api/users')
         .set('Authorization', token)
         .expect(200)
         .end((err, res) => {
@@ -515,7 +515,7 @@ describe('Routes: user', () => {
         });
     });
     it('should return 3 users per page', (done) => {
-      request.get('/api/v1/users/?limit=3')
+      request.get('/api/users/?limit=3')
         .set('Authorization', token)
         .expect(200)
         .end((err, res) => {
@@ -526,7 +526,7 @@ describe('Routes: user', () => {
     });
     it('should return all users from the second with default limit of 10',
     (done) => {
-      request.get('/api/v1/users/?offset=1')
+      request.get('/api/users/?offset=1')
         .set('Authorization', token)
         .expect(200)
         .end((err, res) => {
@@ -535,7 +535,7 @@ describe('Routes: user', () => {
         });
     });
     it('should return all users if limit exceeds max users', (done) => {
-      request.get('/api/v1/users/?limit=10')
+      request.get('/api/users/?limit=10')
         .set('Authorization', token)
         .expect(200)
         .end((err, res) => {
@@ -544,7 +544,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject an unauthorized user', (done) => {
-      request.get(`/api/v1/users/${fakeUID}`)
+      request.get(`/api/users/${fakeUID}`)
         .set('Authorization', `${token}s2`)
         .expect(401)
         .end((err, res) => {
@@ -555,9 +555,9 @@ describe('Routes: user', () => {
     });
   });
 
-  describe('POST /api/v1/users/login', () => {
+  describe('POST /api/users/login', () => {
     it('should log a valid user in', (done) => {
-      request.post('/api/v1/users/login')
+      request.post('/api/users/login')
       .send({
         email: 'inumidun@sky.com',
         password: 'password!'
@@ -570,7 +570,7 @@ describe('Routes: user', () => {
       });
     });
     it('should reject a request without an email', (done) => {
-      request.post('/api/v1/users/login')
+      request.post('/api/users/login')
         .send({
           password: 'password!'
         })
@@ -582,7 +582,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject a request without a password', (done) => {
-      request.post('/api/v1/users/login')
+      request.post('/api/users/login')
         .send({
           email: 'inumidun@sky.com'
         })
@@ -594,7 +594,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject a request with an invalid password', (done) => {
-      request.post('/api/v1/users/login')
+      request.post('/api/users/login')
         .send({
           email: 'inumidun@sky.com',
           password: 'passrd!'
@@ -607,7 +607,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject a request with an invalid email', (done) => {
-      request.post('/api/v1/users/login')
+      request.post('/api/users/login')
         .send({
           email: 'inumidun@skee.com',
           password: 'password!'
@@ -621,7 +621,7 @@ describe('Routes: user', () => {
     });
   });
 
-  describe('PUT /api/v1/users/:id', () => {
+  describe('PUT /api/users/:id', () => {
     it('should update a user with given id', (done) => {
       request.put(`/api/v1/users/${fakeUID.id}`)
         .set('Authorization', token)
@@ -636,7 +636,7 @@ describe('Routes: user', () => {
         });
     });
     it('should allow admin promote regular roles to admin roles', (done) => {
-      request.put(`/api/v1/users/${fakeUID.id}`)
+      request.put(`/api/users/${fakeUID.id}`)
         .set('Authorization', adminToken)
         .send({
           roleId: 1
@@ -648,7 +648,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if token is not valid', (done) => {
-      request.put(`/api/v1/users/${fakeUID.id}`)
+      request.put(`/api/users/${fakeUID.id}`)
         .set('Authorization', `s${token}`)
         .send({
           password: 'a new password'
@@ -661,7 +661,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if sender\'s id does not match param', (done) => {
-      request.put(`/api/v1/users/${fakeUID.id}`)
+      request.put(`/api/users/${fakeUID.id}`)
         .set('Authorization', secondUserToken)
         .send({
           password: 'a new password'
@@ -674,7 +674,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if admin tries to update user details', (done) => {
-      request.put(`/api/v1/users/${fakeUID.id}`)
+      request.put(`/api/users/${fakeUID.id}`)
         .set('Authorization', adminToken)
         .send({
           password: 'a new password'
@@ -687,7 +687,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if admin tries to update admin roleId', (done) => {
-      request.put(`/api/v1/users/${admin.id}`)
+      request.put(`/api/users/${admin.id}`)
         .set('Authorization', adminToken)
         .send({
           roleId: 2
@@ -701,7 +701,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if email already exists', (done) => {
-      request.put(`/api/v1/users/${fakeUID.id}`)
+      request.put(`/api/users/${fakeUID.id}`)
         .set('Authorization', token)
         .send({
           email: faker.bulkCreateUser[2].email
@@ -713,7 +713,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if username exists', (done) => {
-      request.put(`/api/v1/users/${fakeUID.id}`)
+      request.put(`/api/users/${fakeUID.id}`)
         .set('Authorization', token)
         .send({
           username: faker.bulkCreateUser[2].username
@@ -726,9 +726,9 @@ describe('Routes: user', () => {
     });
   });
 
-  describe('DELETE /api/v1/users/:id', () => {
+  describe('DELETE /api/users/:id', () => {
     it('should delete a user', (done) => {
-      request.delete(`/api/v1/users/${secondRegUser.id}`)
+      request.delete(`/api/users/${secondRegUser.id}`)
         .set('Authorization', secondUserToken)
         .expect(204)
         .end((err, res) => {
@@ -737,7 +737,7 @@ describe('Routes: user', () => {
         });
     });
     it('should allow admin delete a user', (done) => {
-      request.delete(`/api/v1/users/${fakeUID.id}`)
+      request.delete(`/api/users/${fakeUID.id}`)
         .set('Authorization', adminToken)
         .expect(204)
         .end((err, res) => {
@@ -746,7 +746,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request to delete user from a regular user', (done) => {
-      request.delete(`/api/v1/users/${fourthRegUser.id}`)
+      request.delete(`/api/users/${fourthRegUser.id}`)
         .set('Authorization', fifthRegUserToken)
         .expect(401)
         .end((err, res) => {
@@ -756,7 +756,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if user was not found', (done) => {
-      request.delete('/api/v1/users/99999')
+      request.delete('/api/users/99999')
         .set('Authorization', fifthRegUserToken)
         .expect(404)
         .end((err, res) => {
@@ -766,7 +766,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject requests from unauthorized users', (done) => {
-      request.delete(`/api/v1/users/${fourthRegUser.id}`)
+      request.delete(`/api/users/${fourthRegUser.id}`)
         .set('Authorization', `${fifthRegUserToken}1`)
         .expect(401)
         .end((err, res) => {
@@ -777,7 +777,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request to delete admin user from admin user', (done) => {
-      request.delete(`/api/v1/users/${admin.id}`)
+      request.delete(`/api/users/${admin.id}`)
         .set('Authorization', adminToken)
         .expect(401)
         .end((err, res) => {
@@ -788,10 +788,10 @@ describe('Routes: user', () => {
     });
   });
 
-  describe('GET /api/v1/users/:id/documents', () => {
+  describe('GET /api/users/:id/documents', () => {
     it('should return only public documents of a user to another reqular users',
     (done) => {
-      request.get(`/api/v1/users/${fakeUID.id}/documents`)
+      request.get(`/api/users/${fakeUID.id}/documents`)
         .set('Authorization', customRolesToken[1])
         .expect(200)
         .end((err, res) => {
@@ -801,7 +801,7 @@ describe('Routes: user', () => {
     });
     it('should return all documents belonging to the requester',
     (done) => {
-      request.get(`/api/v1/users/${fakeUID.id}/documents`)
+      request.get(`/api/users/${fakeUID.id}/documents`)
         .set('Authorization', token)
         .expect(200)
         .end((err, res) => {
@@ -811,7 +811,7 @@ describe('Routes: user', () => {
     });
     it('should return role documents if both users are on the same role',
       (done) => {
-        request.get(`/api/v1/users/${customRoles[0].id}/documents`)
+        request.get(`/api/users/${customRoles[0].id}/documents`)
           .set('Authorization', customRolesToken[1])
           .expect(200)
           .end((err, res) => {
@@ -821,7 +821,7 @@ describe('Routes: user', () => {
       });
     it('should return both private and public documents if admin requests',
       (done) => {
-        request.get(`/api/v1/users/${secondRegUser.id}/documents`)
+        request.get(`/api/users/${secondRegUser.id}/documents`)
           .set('Authorization', adminToken)
           .expect(200)
           .end((err, res) => {
@@ -830,7 +830,7 @@ describe('Routes: user', () => {
           });
       });
     it('should reject requests from an unauthorized user', (done) => {
-      request.get(`/api/v1/users/${customRoles[0].id}/documents`)
+      request.get(`/api/users/${customRoles[0].id}/documents`)
         .set('Authorization', `q${customRolesToken[1]}`)
         .expect(401)
         .end((err, res) => {
@@ -839,7 +839,7 @@ describe('Routes: user', () => {
         });
     });
     it('should reject request if user does not exist', (done) => {
-      request.get('/api/v1/users/10345/documents')
+      request.get('/api/users/10345/documents')
         .set('Authorization', customRolesToken[0])
         .expect(404)
         .end((err, res) => {

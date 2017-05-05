@@ -83,10 +83,10 @@ describe('Routes: documents', () => {
         });
       });
   });
-  describe('GET /api/v1/documents', () => {
+  describe('GET /api/documents', () => {
     it('returns all documents in the database with default limit of 10 per page',
     (done) => {
-      request.get('/api/v1/documents')
+      request.get('/api/documents')
         .set('Authorization', tokens.admin[0])
         .expect(200)
         .end((err, res) => {
@@ -95,7 +95,7 @@ describe('Routes: documents', () => {
         });
     });
     it('should reject request if user does not have token', (done) => {
-      request.get('/api/v1/documents')
+      request.get('/api/documents')
         .expect(401)
         .end((err, res) => {
           expect(res.body.error_code).to.eql('Unauthorized');
@@ -105,7 +105,7 @@ describe('Routes: documents', () => {
         });
     });
     it('should reject request if user has invalid token', (done) => {
-      request.get('/api/v1/documents')
+      request.get('/api/documents')
         .set('Authorization', `e${tokens.admin[0]}`)
         .expect(401)
         .end((err, res) => {
@@ -117,10 +117,10 @@ describe('Routes: documents', () => {
     });
   });
 
-  describe('GET /api/v1/documents/?limit={Integer}&offset={Integer}', () => {
+  describe('GET /api/documents/?limit={Integer}&offset={Integer}', () => {
     it('should return 3 documents per page',
     (done) => {
-      request.get('/api/v1/documents/?limit=3')
+      request.get('/api/documents/?limit=3')
         .set('Authorization', tokens.admin[0])
         .expect(200)
         .end((err, res) => {
@@ -129,7 +129,7 @@ describe('Routes: documents', () => {
         });
     });
     it('should request if query parameter is not an integer', (done) => {
-      request.get('/api/v1/documents/?limit=bal&offset=4')
+      request.get('/api/documents/?limit=bal&offset=4')
         .set('Authorization', tokens.admin[0])
         .expect(400)
         .end((err, res) => {
@@ -140,10 +140,10 @@ describe('Routes: documents', () => {
     });
   });
 
-  describe('POST /api/v1/documents', () => {
+  describe('POST /api/documents', () => {
     it('should create a document', (done) => {
       const doc = faker.publicDocument;
-      request.post('/api/v1/documents')
+      request.post('/api/documents')
         .set('Authorization', tokens.regular[0])
         .send(doc)
         .expect(200)
@@ -154,7 +154,7 @@ describe('Routes: documents', () => {
     });
     it('should reject request from users without a token', (done) => {
       const doc = faker.publicDocument;
-      request.post('/api/v1/documents')
+      request.post('/api/documents')
         .send(doc)
         .expect(401)
         .end((err, res) => {
@@ -166,7 +166,7 @@ describe('Routes: documents', () => {
     });
     it('should reject request from users with invalid token', (done) => {
       const doc = faker.publicDocument;
-      request.post('/api/v1/documents')
+      request.post('/api/documents')
         .set('Authorization', `${tokens.regular[0]}e`)
         .send(doc)
         .expect(401)
@@ -180,7 +180,7 @@ describe('Routes: documents', () => {
     it('should reject request without a title', (done) => {
       const doc = { ...faker.publicDocument };
       delete doc.title;
-      request.post('/api/v1/documents')
+      request.post('/api/documents')
         .set('Authorization', tokens.regular[0])
         .send(doc)
         .expect(400)
@@ -192,7 +192,7 @@ describe('Routes: documents', () => {
     it('should reject request without a content', (done) => {
       const doc = { ...faker.publicDocument };
       delete doc.content;
-      request.post('/api/v1/documents')
+      request.post('/api/documents')
         .set('Authorization', tokens.regular[0])
         .send(doc)
         .expect(400)
@@ -203,9 +203,9 @@ describe('Routes: documents', () => {
     });
   });
 
-  describe('PUT /api/v1/documents/:id', () => {
+  describe('PUT /api/documents/:id', () => {
     it('should update a document', (done) => {
-      request.put(`/api/v1/documents/${docId}`)
+      request.put(`/api/documents/${docId}`)
         .set('Authorization', tokens.regular[0])
         .send({ title: 'Doc Update' })
         .expect(204)
@@ -216,7 +216,7 @@ describe('Routes: documents', () => {
         });
     });
     it('should create a document', (done) => {
-      request.put(`/api/v1/documents/${docId}`)
+      request.put(`/api/documents/${docId}`)
         .set('Authorization', tokens.regular[0])
         .send({ title: 'Doc Update' })
         .expect(204)

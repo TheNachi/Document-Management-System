@@ -1,210 +1,248 @@
+import bcrypt from 'bcrypt';
+import isEmpty from 'lodash/isEmpty';
 import jwt from 'jsonwebtoken';
-import db from '../models/index';
-import errorRender from '../helpers/error-render';
-import { paginate } from '../helpers/helper';
+import { User, Role } from '../models';
+import config from '../config';
 
-const create = (req, res) => {
-  if (req.body.roleId === 1) {
-    return res.status(400).json({
-      message: 'sorry, you can\'t signup as an admin'
-    });
-  }
-  db.users.create(req.body)
-    .then((result) => {
-      const payload = {
-        id: result.id,
-        username: result.username,
-        roleId: result.roleId
-      };
-      res.status(200).json({
-        user: result,
-        token: jwt.sign({
-          exp: Math.floor(Date.now() / 1000) + (60 * 60 * 3),
-          data: payload
-        }, process.env.JWT_SECRET)
-      });
-    })
-    .catch((errors) => {
-      const error = errorRender(errors);
-      res.status(error.status)
-        .json({
-          error_code: error.error_code,
-          message: error.message
-        });
-    });
-};
-
-const getAllUserDocuments = (req, res) => {
-  const id = req.decoded.id;
-  let query;
-  if (id === parseInt(req.params.id, 10) || (req.admin && !req.adminTarget)) {
-    query = { where: { ownerId: req.params.id } };
-  } else if ((id !== parseInt(req.params.id, 10)) && (req.userRole === req.targetRole)) {
-    query = `SELECT * FROM "Documents" WHERE "ownerId"=${req.params.id} AND ("accessId"=1 OR "accessId"=3)`;
-  } else {
-    query = { where: { ownerId: req.params.id, accessId: 1 } };
-  }
-  if (typeof query === 'object') {
-    db.documents.findAll(query)
-    .then((results) => {
-      res.status(200).json(results);
-    });
-  } else {
-    db.sequelize.query(query)
-      .then((results) => {
-        res.status(200).json(results[0]);
-      });
-  }
-};
-
-const findOne = (req, res) => {
-  const attr = {
-    attributes: ['id', 'firstname', 'lastname', 'username', 'email', 'roleId']
+const permittedAttributes = (user) => {
+  const attributes = {
+    id: user.id,
+    username: user.username,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    email: user.email,
+    RoleId: user.RoleId,
+    createdAt: user.createdAt,
+    updatedAt: user.updatedAt
   };
-  if (req.admin) {
-    attr.attributes.push('password', 'createdAt', 'updatedAt');
-  }
-  db.users.findById(req.params.id, attr)
-    .then((user) => {
-      res.status(200).json(user);
-    }).catch((errors) => {
-      const error = errorRender(errors);
-      res.status(error.status)
-        .json({
-          error_code: error.error_code,
-          message: error.message
-        });
-    });
+  return attributes;
 };
 
-const findAll = (req, res) => {
-  let limit, offset;
-  const query = {
-    where: {},
-    attributes: ['id', 'firstname', 'lastname', 'username', 'email', 'roleId'] };
-  if (req.admin) {
-    query.attributes.push('password', 'createdAt', 'updatedAt');
-  }
-  if (req.query) {
-    limit = req.query.limit || 100;
-    offset = req.query.offset || 0;
-  }
-  db.users.findAll(query)
-    .then((users) => {
-      res.status(200).json(paginate(limit, offset, users, 'users'));
-    });
-};
+export default {
 
-const updateUser = (req, res) => {
-  const id = req.decoded.id;
-  let query;
-  if (req.admin
-    && Object.keys(req.body).length === 1
-    && req.body.roleId
-    && !req.adminTarget) {
-    query = req.body;
-  } else if (req.body.roleId && !req.admin) {
-    return res.status(401).json({
-      error_code: 'Unauthorized',
-      message: 'Only and admin user can promote other users'
-    });
-  } else if (req.params.id
-    && parseInt(req.params.id, 10) === id) {
-    query = req.body;
-  } else {
-    return res.status(401).json({
-      error_code: 'Unauthorized',
-      message: `Cannot update properties of another ${(req.adminTarget) ? 'admin' : 'user'}`
-    });
-  }
-  db.users.update(query, { where: {
-    id: req.params.id
-  } }).then(() => {
-    res.sendStatus(204);
-  }).catch((errors) => {
-    const error = errorRender(errors);
-    res.status(error.status)
-      .json({
-        error_code: error.error_code,
-        message: error.message
-      });
-  });
-};
-
-const deleteUser = (req, res) => {
-  if (req.adminTarget && req.decoded.id !== req.params.id) {
-    return res.status(401).json({
-      error_code: 'Unauthorized',
-      message: 'you cannot delete an admin'
-    });
-  } else if (!req.admin && req.decoded.id !== parseInt(req.params.id, 10)) {
-    return res.status(401).json({
-      error_code: 'Unauthorized',
-      message: 'you cannot delete another user'
-    });
-  }
-  db.users.destroy({ where: {
-    id: req.params.id
-  } }).then(() => {
-    res.sendStatus(204);
-  }).catch((errors) => {
-    const error = errorRender(errors);
-    res.status(error.status)
-      .json({
-        error_code: error.error_code,
-        message: error.message
-      });
-  });
-};
-
-const login = (req, res) => {
-  if (req.body.email && req.body.password) {
-    const email = req.body.email;
-    const password = req.body.password;
-    db.users.findOne({ where: { email } })
-      .then((user) => {
-        if (user) {
-          if (user.isPassword(user.password, password)) {
-            
-            const payload = {
-              id: user.id,
-              username: user.username,
-              roleId: user.roleId
-            };
-            res.status(200).json({
-              token: jwt.sign({
-                exp: Math.floor(Date.now() / 1000) + (60 * 60 * 3),
-                data: payload
-              }, process.env.JWT_SECRET)
-            });
-          } else {
-            res.status(401).json({
-              error_code: 'Unauthorized Access',
-              message: 'email/password do not match'
-            });
+  /**
+   * Create a user
+   * Route: POST: /users
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  create(req, res) {
+    const { username, firstName, lastName, email, password } = req.body;
+    const RoleId = req.body.RoleId && req.body.RoleId < 3 ? req.body.RoleId : 2;
+    User.findOne(
+      { where: {
+        $or: [{ username }, { email }]
+      } })
+      .then((existingUser) => {
+        const errors = {};
+        if (existingUser) {
+          if (existingUser.username === username) {
+            errors.username = 'There is user with such username';
           }
+          if (existingUser.email === email) {
+            errors.email = 'There is user with such email';
+          }
+          res.status(409).send(errors);
         } else {
-          res.status(401).json({
-            error_code: 'Unauthorized Access',
-            message: 'email/password do not match'
+          User.create({
+            username,
+            firstName,
+            lastName,
+            email,
+            password,
+            RoleId
+          }).then((user) => {
+            const token = jwt.sign({
+              UserId: user.id,
+              RoleId: user.RoleId
+            }, config.jwtSecret, { expiresIn: 86400 });
+            user = permittedAttributes(user);
+            res.status(201).send({ token, expiresIn: 86400, user });
+          })
+          .catch((err) => {
+            res.status(400).send({ error: err });
           });
         }
-      })
-      .catch(() => res.sendStatus(404));
-  } else {
-    res.status(401).json({
-      error_code: 'Unauthorized Access',
-      message: 'email/password do not match'
+      });
+  },
+
+  /**
+   * Get all users
+   * Route: GET: /users
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void} no returns
+   */
+  list(req, res) {
+    User.findAll({
+      attributes: [
+        'id',
+        'username',
+        'firstName',
+        'lastName',
+        'email',
+        'RoleId',
+        'createdAt',
+        'updatedAt'
+      ],
+      include: [{
+        model: Role,
+        as: 'Role',
+      }]
+    }).then((users) => {
+      res.send(users);
     });
+  },
+
+  /**
+   * Get a particular user
+   * Route: GET: /users/:id
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  retrieve(req, res) {
+    User.findById(req.params.id)
+      .then((user) => {
+        if (!user) {
+          return res.status(404)
+            .send({ message: `User with id: ${req.params.id} not found` });
+        }
+        user = permittedAttributes(user);
+        res.send(user);
+      });
+  },
+
+  /**
+   * Update a particular user
+   * Route: PUT: /users/:id
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  update(req, res) {
+    User.findById(req.params.id)
+      .then((user) => {
+        if (!user) {
+          return res.status(404)
+            .send({ message: `User with id: ${req.params.id} not found` });
+        }
+        user.update(req.body)
+          .then((updatedUser) => {
+            updatedUser = permittedAttributes(updatedUser);
+            res.send(updatedUser);
+          });
+      });
+  },
+
+  /**
+   * Delete a particular user
+   * Route: DELETE: /users/:id
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  destroy(req, res) {
+    User.findById(req.params.id)
+      .then((user) => {
+        if (!user) {
+          return res.status(404)
+            .send({ message: `User with id: ${req.params.id} not found` });
+        }
+        user.destroy()
+          .then(() => res.send({ message: 'User deleted successfully.' }));
+      });
+  },
+
+  /**
+   * Login user
+   * Route: POST: /users/login
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  login(req, res) {
+    const { identifier, password } = req.body;
+
+    User.findOne({
+      where: {
+        $or: [{ username: identifier }, { email: identifier }]
+      }
+    })
+    .then((user) => {
+      const errors = {};
+      if (user) {
+        if (bcrypt.compareSync(password, user.password)) {
+          const token = jwt.sign({
+            UserId: user.id,
+            RoleId: user.RoleId
+          }, config.jwtSecret, { expiresIn: 86400 });
+
+          res.send({ token, expiresIn: 86400 });
+        } else {
+          errors.form = 'Invalid Credentials';
+          res.status(401)
+            .send(errors);
+        }
+      } else {
+        errors.form = 'Invalid Credentials';
+        res.status(401)
+            .send(errors);
+      }
+    });
+  },
+
+  /**
+   * Logout user
+   * Route: POST: /users/logout
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {Response|void} response object or void
+   */
+  logout(req, res) {
+    res.send({ message: 'Logout successful.' });
+  },
+
+  /**
+   * Search for a user
+   * Route: GET: /search/users?q={queryParam}
+   * @param {Object} req request object
+   * @param {Object} res response object
+   * @returns {void} no returns
+   */
+  search(req, res) {
+    User.findAll({
+      where: {
+        $or: [{
+          username: {
+            $iLike: `%${req.query.q}%`
+          }
+        }, {
+          firstName: {
+            $iLike: `%${req.query.q}%`
+          }
+        }, {
+          lastName: {
+            $iLike: `%${req.query.q}%`
+          }
+        },
+        {
+          email: {
+            $iLike: `%${req.query.q}%`
+          }
+        }]
+      }
+    }).then((users) => {
+      if (!users) {
+        return res.status(404)
+            .send({ message: 'No user found' });
+      }
+      const results = users.map(user => permittedAttributes(user));
+      res.status(200).send(results);
+    })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
   }
 };
-
-export {
-  create,
-  findOne,
-  findAll,
-  updateUser,
-  deleteUser,
-  login,
-  getAllUserDocuments
- };
