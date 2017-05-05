@@ -15,7 +15,7 @@ class NavigationBar extends React.Component {
     return (
       <nav className="black-text nav-holder" role="navigation">
         <div className="nav-wrapper container">
-          <Link to="/app/" className="brand-logo">DMS</Link>
+          <Link to="/app/" className="brand-logo">Document Management System</Link>
           <ul className="right hide-on-med-and-down" id="mobile-demo">
             <li><Link to="/app/">
               {isAuthenticated ?

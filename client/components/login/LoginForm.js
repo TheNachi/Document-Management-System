@@ -3,7 +3,8 @@ import { Row, Input, Button } from 'react-materialize';
 
 const LoginForm = ({ errors, onChange, loginProps, onSubmit }) => {
   return (
-    <form onSubmit={onSubmit}>
+    <div className="backgrd">
+      <form onSubmit={onSubmit}>
       <h1>Login</h1>
       <Row>
         {errors.form && <div style={{ color: '#F44336' }}>{errors.form}</div>}
@@ -29,6 +30,7 @@ const LoginForm = ({ errors, onChange, loginProps, onSubmit }) => {
           className="btn waves-effect waves-light" name="action" type="submit" />
       </Row>
     </form>
+    </div>
   );
 };
 

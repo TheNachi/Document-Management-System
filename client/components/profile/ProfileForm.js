@@ -43,56 +43,56 @@ class ProfileForm extends Component {
 
   render() {
     return (
-      <div>
-        <form className="col s12" method="post" onSubmit={this.onSubmit}>
-          <Row>
-            <Input
-              label="First Name"
-              s={6}
-              name="firstName"
-              value={this.state.firstName}
-              onChange={event => this.onChange(event)}
-              required
-            />
-            <Input
-              label="Last Name"
-              s={6}
-              name="lastName"
-              value={this.state.lastName}
-              onChange={event => this.onChange(event)}
-              required
-            />
-            <Input
-              label="Username"
-              s={6}
-              name="username"
-              value={this.state.username}
-              onChange={event => this.onChange(event)}
-              required
-            />
-            <Input
-            label="Email"
-              s={6}
-              name="email"
-              value={this.state.email}
-              onChange={event => this.onChange(event)}
-              required
-            />
-            <Input
-              label="Password"
-              s={6}
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={event => this.onChange(event)}
-              required
-            />
-          </Row>
-          <Button className="" waves="light" type="submit">
-            UPDATE
-          </Button>
-        </form>
-      </div>
+        <div className="backgrd">
+          <form className="col s12" method="post" onSubmit={this.onSubmit}>
+            <Row>
+              <Input
+                label="First Name"
+                s={6}
+                name="firstName"
+                value={this.state.firstName}
+                onChange={event => this.onChange(event)}
+                required
+              />
+              <Input
+                label="Last Name"
+                s={6}
+                name="lastName"
+                value={this.state.lastName}
+                onChange={event => this.onChange(event)}
+                required
+              />
+              <Input
+                label="Username"
+                s={6}
+                name="username"
+                value={this.state.username}
+                onChange={event => this.onChange(event)}
+                required
+              />
+              <Input
+              label="Email"
+                s={6}
+                name="email"
+                value={this.state.email}
+                onChange={event => this.onChange(event)}
+                required
+              />
+              <Input
+                label="Password"
+                s={6}
+                name="password"
+                type="password"
+                value={this.state.password}
+                onChange={event => this.onChange(event)}
+                required
+              />
+            </Row>
+            <Button className="" waves="light" type="submit">
+              UPDATE
+            </Button>
+          </form>
+        </div>
     );
   }
 }

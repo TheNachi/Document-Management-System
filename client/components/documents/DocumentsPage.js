@@ -30,7 +30,7 @@ class DocumentsPage extends React.Component {
       <div>
         <h1>Documents List</h1>
         <div className="row">
-          <div className="col s7 push-s4">
+          <div className="col s7 push-s4 backgrd">
             <Search onChange={this.handleSearch} />
           </div>
           <div className="col s5 pull-s7" id="createdocument">

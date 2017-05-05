@@ -52,3 +52,10 @@ nav .nav-wrapper, .nav-holder {
 .card {
   min-height:400px;
 }
+
+.backgrd {
+  background: rgba(255, 255, 255, .9);
+  padding: 20px;
+  box-shadow: 2px 2px 4px #888;
+  margin-top: 30px;
+}

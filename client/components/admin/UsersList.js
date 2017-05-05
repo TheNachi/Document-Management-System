@@ -5,7 +5,7 @@ export default function UsersList({ users, deleteUser, auth }) {
   const userRows = users.map(user =>
     <UserRow user={user} key={user.id} deleteUser={deleteUser} auth={auth} />);
   return (
-    <table className="striped">
+    <table className="striped backgrd">
       <thead>
         <tr>
           <th>UserName</th>

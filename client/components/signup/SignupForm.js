@@ -3,7 +3,8 @@ import { Row, Input, Button } from 'react-materialize';
 
 const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
   return (
-    <form onSubmit={onSubmit}>
+    <div className="backgrd">
+      <form onSubmit={onSubmit}>
       <h4>Register</h4>
       <Row>
         <Input
@@ -71,6 +72,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
         />
       </Row>
     </form>
+    </div>
   );
 };
 
