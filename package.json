@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:dist": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./server/test,./client/test,./screenshots,./reports,./migrations,./coverage,docs,testSetup.js --copy-files",
-    "start": "npm run build:dist && npm run webpack && node dist/server.js",
+    "start": "webpack -p && babel-node server.js",
     "mocha": "mocha --compilers js:babel-core/register",
     "test": "NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli.js cover _mocha -- server/tests/**/*.test.js testSetup.js client/test/**/*.test.js --timeout 30000",
     "client:test": "mocha --reporter progress testSetup.js client/test/**/*.test.js",
