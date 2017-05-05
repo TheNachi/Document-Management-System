@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import validateInput from '../../../server/shared/validations/signup';
 import SignupForm from './SignupForm';
-import userSignupRequest from '../../actions/signupActions';
+import { userSignupRequest } from '../../actions/signupActions';
 
 class SignupPage extends React.Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class SignupPage extends React.Component {
 
   isValid() {
     const { errors, isValid } = validateInput(this.state);
+
     if (!isValid) {
       this.setState({ errors });
     }
@@ -41,11 +42,7 @@ class SignupPage extends React.Component {
         () => {
           this.context.router.push('/app/');
         },
-        ({ data }) => {
-          const errors = {};
-          errors.form = data.message;
-          this.setState({ errors });
-        }
+        ({ data }) => this.setState({ errors: data })
       );
     }
   }

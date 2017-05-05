@@ -17,6 +17,6 @@ module.exports = {
   },
 
   down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('roles', { title: ['admin', 'regular'] });
+    return queryInterface.bulkDelete('Roles', { title: ['admin', 'regular'] });
   }
 };

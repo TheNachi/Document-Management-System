@@ -19,9 +19,11 @@ export default function documents(state = [], action = {}) {
       ];
     case types.DOCUMENT_DELETED:
       return [
-        ...state.filter(document => document.id !== action.documentId),
+        ...state.filter(document => document.id !== action.document.id),
       ];
     case types.SET_DOCUMENTS:
+      return action.documents;
+    case types.CLEAR_DOCUMENTS:
       return action.documents;
 
     default: return state;

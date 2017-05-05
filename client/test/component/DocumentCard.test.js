@@ -5,15 +5,14 @@ import DocumentCard from '../../components/documents/DocumentCard';
 
 function setup() {
   const props = {
-    document: { title: '', content: '', access: '', owner: {} },
+    document: { title: '', content: '', access: '' },
     deleteDocument: () => {},
-    currentUser: {}
   };
 
   return mount(<DocumentCard {...props} />);
 }
 
-describe('DocumentCard Test', () => {
+describe('DocumentForm Test', () => {
   it('renders a row div', () => {
     const wrapper = setup();
     expect(wrapper.find('.row')).toExist;

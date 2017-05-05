@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import EditUserRole from './EditUserRole';
-import * as userActions from '../../actions/userActions';
+import * as adminActions from '../../actions/adminActions';
 
 class UserRow extends React.Component {
   constructor(props) {
@@ -14,7 +14,9 @@ class UserRow extends React.Component {
 
     this.onChange = this.onChange.bind(this);
   }
-
+  componentDidMount() {
+    $('select').material_select();
+  }
   onChange(event) {
     event.preventDefault();
     const field = event.target.name;
@@ -32,13 +34,15 @@ class UserRow extends React.Component {
         <td>{user.firstName}</td>
         <td>{user.lastName}</td>
         <td>{user.email}</td>
-        <td>{auth.user.roleId !== user.roleId ? <EditUserRole
-            value={parseInt(this.state.user.roleId, 10)}
-            onChange={this.onChange} /> : <span>{user.Role.title}</span>
+        <td>{auth.user.UserId !== user.id ?
+          <EditUserRole
+            value={parseInt(this.state.user.RoleId, 10)}
+            onChange={this.onChange} /> :
+          <span>{user.Role.title}</span>
           }
         </td>
         <td>{user.createdAt.substr(0, 10)}</td>
-        <td>{auth.user.userId !== user.id &&
+        <td>{auth.user.RoleId !== user.RoleId &&
           <a href="" onClick={() => deleteUser(user.id)}>Delete</a>}</td>
       </tr>
     );
@@ -54,7 +58,7 @@ UserRow.propTypes = {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(userActions, dispatch),
+    actions: bindActionCreators(adminActions, dispatch),
   };
 }
 

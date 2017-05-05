@@ -6,10 +6,8 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
     <form onSubmit={onSubmit}>
       <h4>Register</h4>
       <Row>
-        {errors.form && <div style={{ color: '#F44336' }}>{errors.form}</div>}
         <Input
-        label="UserName"
-          s={12}
+          s={6}
           validate
           placeholder="UserName"
           error={errors.username}
@@ -18,7 +16,6 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="username"
         />
         <Input
-          label="First Name"
           s={6}
           validate
           placeholder="First Name"
@@ -28,7 +25,6 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="firstName"
         />
         <Input
-          label="Last Name"
           s={6}
           validate
           placeholder="Last Name"
@@ -38,8 +34,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="lastName"
         />
         <Input
-          label="Email"
-          s={12}
+          s={6}
           validate
           placeholder="Email"
           error={errors.email}
@@ -49,7 +44,6 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="email"
         />
         <Input
-          label="Password"
           s={6}
           validate
           placeholder="Password"
@@ -60,7 +54,6 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="password"
         />
         <Input
-          label="Password Confirmation"
           s={6}
           validate
           placeholder="Password Confirmation"

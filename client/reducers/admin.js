@@ -1,20 +1,20 @@
-import * as types from '../actions/types';
+import { SET_USERS, USER_FETCHED, USER_UPDATED, USER_DELETED } from '../actions/types';
 
 export default function users(state = [], action = {}) {
   switch (action.type) {
-    case types.USER_FETCHED:
-      return [
-        ...state,
-        Object.assign({}, action.user),
-      ];
-    case types.USER_UPDATED:
+    case USER_FETCHED:
       return [
         ...state.filter(user => user.id !== action.user.id),
         Object.assign({}, action.user),
       ];
-    case types.USER_DELETED:
+    case USER_UPDATED:
+      return [
+        ...state.filter(user => user.id !== action.user.id),
+        Object.assign({}, action.user),
+      ];
+    case USER_DELETED:
       return state.filter(item => item.id !== action.userId);
-    case types.SET_USERS:
+    case SET_USERS:
       return action.users;
     default: return state;
   }

@@ -5,12 +5,11 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import jwt from 'jsonwebtoken';
-import 'babel-polyfill';
 import routes from './routes';
 import setAuthorizationToken from './utils/setAuthorizationToken';
+import { setCurrentUser } from './actions/authActions';
 import rootReducer from './reducers';
-import * as types from './actions/types';
-import './styles/styles.scss';
+import './styles/styles.css';
 
 const store = createStore(
    rootReducer,
@@ -22,10 +21,7 @@ const store = createStore(
 
 if (window.localStorage.jwtToken) {
   setAuthorizationToken(window.localStorage.jwtToken);
-  store.dispatch({
-    type: types.SET_CURRENT_USER,
-    user: jwt.decode(window.localStorage.jwtToken)
-  });
+  store.dispatch(setCurrentUser(jwt.decode(window.localStorage.jwtToken)));
 }
 render(
   <Provider store={store}>

@@ -26,7 +26,7 @@ ProfilePage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    user: state.auth.user.userId,
+    user: state.auth.user.UserId,
   };
 }
 

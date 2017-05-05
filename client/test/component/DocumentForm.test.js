@@ -24,11 +24,11 @@ describe('DocumentForm Test', () => {
 
   it('save button is labeled "Save" when not saving', () => {
     const wrapper = setup(false);
-    expect(wrapper.find('Input').at(1).props().value).toBe('Save');
+    expect(wrapper.find('Input').at(3).props().value).toBe('Save');
   });
 
   it('save button is labeled "Saving..." when saving', () => {
     const wrapper = setup(true);
-    expect(wrapper.find('Input').at(1).props().value).toBe('Saving...');
+    expect(wrapper.find('Input').at(3).props().value).toBe('Saving...');
   });
 });

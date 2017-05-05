@@ -19,9 +19,11 @@ class ManageDocumentPage extends React.Component {
 
     this.updateDocumentState = this.updateDocumentState.bind(this);
     this.saveDocument = this.saveDocument.bind(this);
-    this.redirect = this.redirect.bind(this);
   }
 
+  componentDidMount() {
+    $('select').material_select();
+  }
   componentWillReceiveProps(nextProps) {
     if (this.props.document.id !== nextProps.document.id) {
       // Necessary to populate form when existing document is loaded directly.
@@ -31,44 +33,31 @@ class ManageDocumentPage extends React.Component {
   updateDocumentState(event) {
     const field = event.target.name;
     const document = this.state.document;
-    if (event.target.id === 'content') {
-      document.content = event.target.getContent();
-    }
     document[field] = event.target.value;
     return this.setState({ document });
   }
 
-  saveSuccess() { this.redirect(); }
-
-  saveFailure(error) {
-    toastr.error(error);
-    this.setState({ saving: false });
-  }
-
-  isValid() {
-    const data = {
-      title: this.state.document.title,
-      content: this.state.document.content,
-      access: this.state.document.access
-    };
-    const { errors, isValid } = validateInput(data);
-    if (!isValid) {
-      this.setState({ errors });
-    }
-    return isValid;
-  }
-
   saveDocument(event) {
     event.preventDefault();
-    if (this.isValid()) {
-      this.setState({ saving: true, errors: {} });
-      if (this.state.document.id) {
-        this.props.actions.updateDocument(this.state.document)
-            .then(this.saveSuccess.bind(this), this.saveFailure.bind(this));
-      } else {
-        this.props.actions.saveDocument(this.state.document)
-          .then(this.saveSuccess.bind(this), this.saveFailure.bind(this));
-      }
+    this.setState({ saving: true });
+    if (this.state.document.id) {
+      this.props.actions.updateDocument(this.state.document)
+        .then(() => {
+          this.redirect();
+        })
+        .catch((error) => {
+          toastr.error(error);
+          this.setState({ saving: false });
+        });
+    } else {
+      this.props.actions.saveDocument(this.state.document)
+      .then(() => {
+        this.redirect();
+      })
+      .catch((error) => {
+        toastr.error(error);
+        this.setState({ saving: false });
+      });
     }
   }
 
