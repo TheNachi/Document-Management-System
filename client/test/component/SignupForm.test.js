@@ -19,7 +19,7 @@ describe('LoginForm Test', () => {
     const wrapper = setup();
     expect(wrapper.length).toEqual(1);
     expect(wrapper.find('Input').length).toEqual(7);
-    expect(wrapper.find('h4').text()).toEqual('Register');
+    expect(wrapper.find('h4').text()).toEqual('Sign Up');
   });
   it('should take props', () => {
     const wrapper = setup();

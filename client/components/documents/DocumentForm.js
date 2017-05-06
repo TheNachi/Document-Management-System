@@ -4,55 +4,58 @@ import TinyMCE from 'react-tinymce';
 
 const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
   return (
-    <form>
-      <h5>Create/Update a Document</h5>
-      <Row>
-        <Input
-          placeholder="Title"
-          s={12}
-          validate
-          name="title"
-          onChange={onChange}
-          value={document.title}
-          error={errors.title}
-          id="title"
-        />
-        <div className="input-field col s12">
-          <TinyMCE
-            id="content"
-            content={document.content}
-            config={{
-              plugins: 'autolink link image lists print preview',
-              toolbar: 'undo redo | bold italic | alignleft aligncenter alignright'
-            }}
+    <div className="backgrd">
+      <form>
+        <h5>Create/Update a Document</h5>
+        <Row>
+          <Input
+            placeholder="Title"
+            s={12}
+            validate
+            name="title"
             onChange={onChange}
+            value={document.title}
+            error={errors.title}
+            id="title"
           />
-        </div>
-        <div className="input-field col s6">
-          <select
-            style={{ display: 'block' }}
-            id="access"
-            value={document.access}
-            onChange={onChange}
-            name="access"
-          >
-            <option defaultValue>Select Access</option>
-            <option value="public">Public</option>
-            <option value="private">Private</option>
-            <option value="role" >Role</option>
-          </select>
-        </div>
+          <div className="input-field col s12">
+            <TinyMCE
+              id="content"
+              content={document.content}
+              config={{
+                plugins: 'autolink link image lists print preview',
+                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright'
+              }}
+              onChange={onChange}
+            />
+          </div>
+          <div className="input-field col s6">
+            <select
+              style={{ display: 'block' }}
+              id="access"
+              value={document.access}
+              onChange={onChange}
+              name="access"
+            >
+              <option defaultValue>Select Access</option>
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+              <option value="role" >Role</option>
+            </select>
+          </div>
 
 
-        <Input
-          type="submit"
-          disabled={saving}
-          value={saving ? 'Saving...' : 'Save'}
-          className="btn waves-effect waves-light blue"
-          onClick={onSave}
-        />
-      </Row>
-    </form>
+          <Input
+            type="submit"
+            disabled={saving}
+            value={saving ? 'Saving...' : 'Save'}
+            className="btn waves-effect waves-light blue"
+            onClick={onSave}
+          />
+        </Row>
+      </form>
+    </div>
+    
   );
 };
 

@@ -15,10 +15,10 @@ const options = {
   // import swaggerDefinitions
   swaggerDefinition,
   // path to the API docs
-  apis: ['./server/config/routes/document.js', './server/config/routes/users.js', './server/config/routes/role.js'],
+  apis: ['./server/routes/document.js', './server/routes/user.js', './server/routes/role.js'],
 };
 
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);
 
-export default swaggerSpec;
+module.exports = swaggerSpec;
