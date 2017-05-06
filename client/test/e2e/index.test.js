@@ -5,7 +5,7 @@ module.exports = {
     browser
             .url(config.url)
             .waitForElementVisible('body')
-            .assert.title('Document Manager')
+            .assert.title('Document Management System')
             .end();
   }
 };

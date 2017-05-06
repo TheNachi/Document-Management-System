@@ -69,7 +69,7 @@ userRouter.route('/')
 userRouter.route('/users')
     /**
      * @swagger
-     * /api/v1/users:
+     * /users:
      *    get:
      *      description: Returns all users
      *      tags:
@@ -91,7 +91,7 @@ userRouter.route('/users')
      *              $ref: '#/definitions/User'
      */
    /** @swagger
-     *  /api/v1/users/?limit=4&offset=2:
+     *  /users/?limit=4&offset=2:
      *   get:
      *     description: Returns {limit} users from the the {offset}
      *     tags:
@@ -115,7 +115,7 @@ userRouter.route('/users')
     .get(auth.verifyToken, Users.list)
     /**
      * @swagger
-     * /api/v1/users:
+     * /users:
      *   post:
      *     description: Creates a user
      *     tags:
@@ -143,7 +143,7 @@ userRouter.route('/users')
 userRouter.route('/users/:id')
   /**
    * @swagger
-   * /api/v1/users/1:
+   * /users/1:
    *    get:
    *      description: Returns the user with the id of 1
    *      tags:
@@ -167,7 +167,7 @@ userRouter.route('/users/:id')
     .get(auth.verifyToken, Users.retrieve)
     /**
      * @swagger
-     * /api/v1/users/1:
+     * /users/1:
      *   put:
      *     description: Creates a user
      *     tags:
@@ -199,7 +199,7 @@ userRouter.route('/users/:id')
 
     /**
      * @swagger
-     * /api/v1/users/1:
+     * /users/1:
      *    delete:
      *      description: Deletes the user with the id of 1
      *      tags:
@@ -255,31 +255,114 @@ userRouter.route('/users/:id')
 userRouter.route('/users/login')
       .post(auth.validateLoginInput, Users.login);
 
+  // Find all documents belonging to the user.
+/**
+ * @swagger
+ * definitions:
+ *   NewFetchDoc:
+ *     type: object
+ *   FetchDoc:
+ *     allOf:
+ *       - $ref: '#/definitions/NewFetchDoc'
+ *       - required:
+ *         - id
+ *       - properties:
+ *         id:
+ *           type: integer
+ *           format: int64
+ */
+userRouter.route('/users/:id/documents')
   /**
    * @swagger
-   * /api/v1/users/{param}/documents:
-   *    get:
-   *      description: Returns the documents belonging to the user of id 1
-   *      tags:
-   *        - Get Documents of A User
-   *      produces:
-   *        - application/json
-   *      parameters:
-   *        - name: Authorization
-   *          in: header
-   *          description: an authorization header
-   *          required: true
-   *          type: string
-   *      responses:
-   *        200:
-   *          description: user's documents
-   *          schema:
-   *            type: array
+   * /users/{id}/documents:
+   *   get:
+   *     description: Returns the documents of a particular user
+   *     tags:
+   *      - Find Documents
+   *     produces:
+   *      - application/json
+   *     parameters:
+   *       - name: id
+   *         description: The user's id
+   *         in:  path
+   *         required: true
+   *         type: string
+   *       - name: x-access-token
+   *         in: header
+   *         description: an authorization header
+   *         required: true
+   *         type: string
+   *     responses:
+   *       200:
+   *         description: users
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/FetchDoc'
    */
-userRouter.route('/users/:id/documents')
     .get(auth.verifyToken, Documents.userDocuments);
+  // Search for a user
+  /**
+   * @swagger
+   * definitions:
+   *   NewSearchUser:
+   *     type: object
+   *   SearchUser:
+   *     allOf:
+   *       - $ref: '#/definitions/NewSearchUser'
+   *       - required:
+   *         - id
+   *       - properties:
+   *         id:
+   *           type: integer
+   *           format: int64
+   */
 userRouter.route('/search/users')
+  /**
+   * @swagger
+   * /search/users/?q={username}:
+   *   get:
+   *     description: Returns the documents of a particular user
+   *     tags:
+   *      - Find Users
+   *     produces:
+   *      - application/json
+   *     parameters:
+   *       - name: username
+   *         description: The user's username
+   *         in:  path
+   *         required: true
+   *         type: string
+   *       - name: x-access-token
+   *         in: header
+   *         description: an authorization header
+   *         required: true
+   *         type: string
+   *     responses:
+   *       200:
+   *         description: users
+   *         schema:
+   *           type: array
+   *           items:
+   *             $ref: '#/definitions/SearchUser'
+   */
     .get(auth.verifyToken, Users.search);
+    // logs out a user
+  /**
+   * @swagger
+   * definitions:
+   *   NewLogout:
+   *     type: object
+   *   Logout:
+   *     allOf:
+   *       - $ref: '#/definitions/NewLogout'
+   *       - required:
+   *         - id
+   *       - properties:
+   *         id:
+   *           type: integer
+   *           format: int64
+   */
 userRouter.route('/users/logout')
     .post(Users.logout);
 

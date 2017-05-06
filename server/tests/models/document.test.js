@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Role, User, Document } from '../../models/index';
+import { Role, User, Document } from '../../models';
 import helper from '../test-helper';
 
 const documentParams = helper.publicDocument;

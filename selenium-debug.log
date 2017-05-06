@@ -1,0 +1,943 @@
+12:04:36.308 INFO - Selenium build info: version: '3.4.0', revision: 'unknown'
+12:04:36.309 INFO - Launching a standalone Selenium Server
+2017-05-06 12:04:36.336:INFO::main: Logging initialized @508ms to org.seleniumhq.jetty9.util.log.StdErrLog
+12:04:36.390 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+ registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+12:04:36.390 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+ registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+12:04:36.390 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+12:04:36.391 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+Unable to create new instances on this machine.
+12:04:36.391 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+12:04:36.391 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+2017-05-06 12:04:36.444:INFO:osjs.Server:main: jetty-9.4.3.v20170317
+2017-05-06 12:04:36.527:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@d8355a8{/,null,AVAILABLE}
+2017-05-06 12:04:36.572:INFO:osjs.AbstractConnector:main: Started ServerConnector@146ba0ac{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2017-05-06 12:04:36.573:INFO:osjs.Server:main: Started @746ms
+12:04:36.573 INFO - Selenium Server is up and running
+12:04:37.795 INFO - SessionCleaner initialized with insideBrowserTimeout 0 and clientGoneTimeout 1800000 polling every 180000
+12:04:37.824 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Create Document Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+12:04:37.854 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Create Document Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 30804
+Only local connections are allowed.
+12:04:39.238 INFO - Detected dialect: OSS
+12:04:39.266 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Create Document Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+12:04:39.290 INFO - Executing: [get: http://localhost:4000/app/])
+12:04:39.708 INFO - Done: [get: http://localhost:4000/app/]
+12:04:39.719 INFO - Executing: [find element: By.cssSelector: #login])
+12:04:40.769 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 94 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=#login}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:40.772 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 94 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=#login}
+12:04:40.928 INFO - Executing: [find element: By.cssSelector: Input[name=identifier]])
+12:04:41.181 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 25 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:41.182 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 25 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+12:04:41.291 INFO - Executing: [find element: By.cssSelector: Input[name=password]])
+12:04:41.527 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 31 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=Input[name=password]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:41.528 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 31 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=Input[name=password]}
+12:04:41.620 INFO - Executing: [find element: By.cssSelector: Input[type=submit]])
+12:04:41.866 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 31 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=Input[type=submit]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:41.866 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 31 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.dHZWja}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 10ac94d34d40466620e8acc38c492045
+*** Element info: {Using=css selector, value=Input[type=submit]}
+12:04:46.926 INFO - Executing: [get current url])
+12:04:46.933 INFO - Done: [get current url]
+12:04:46.942 INFO - Executing: [find elements: By.cssSelector: body])
+12:04:46.978 INFO - Done: [find elements: By.cssSelector: body]
+12:04:46.984 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (10ac94d34d40466620e8acc38c492045)] -> css selector: body]])
+12:04:47.015 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (10ac94d34d40466620e8acc38c492045)] -> css selector: body]]
+12:04:47.021 INFO - Executing: [find elements: By.cssSelector: .hero-btn])
+12:04:47.038 INFO - Done: [find elements: By.cssSelector: .hero-btn]
+12:04:47.048 INFO - Executing: [delete session: f9484ff3-468b-4564-b9cf-957309027a98])
+12:04:47.129 INFO - Done: [delete session: f9484ff3-468b-4564-b9cf-957309027a98]
+12:04:47.178 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Index Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+12:04:47.180 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Index Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 20206
+Only local connections are allowed.
+12:04:48.032 INFO - Detected dialect: OSS
+12:04:48.035 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Index Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+12:04:48.043 INFO - Executing: [get: http://localhost:4000/app/])
+12:04:48.379 INFO - Done: [get: http://localhost:4000/app/]
+12:04:48.386 INFO - Executing: [find elements: By.cssSelector: body])
+12:04:48.414 INFO - Done: [find elements: By.cssSelector: body]
+12:04:48.418 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (721629fbb27f6815dd941af9abcbe252)] -> css selector: body]])
+12:04:48.437 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (721629fbb27f6815dd941af9abcbe252)] -> css selector: body]]
+12:04:48.441 INFO - Executing: [get title])
+12:04:48.447 INFO - Done: [get title]
+12:04:48.452 INFO - Executing: [delete session: e1332cf2-a362-4b0e-a04f-85131663f7ae])
+12:04:48.528 INFO - Done: [delete session: e1332cf2-a362-4b0e-a04f-85131663f7ae]
+12:04:48.578 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+12:04:48.579 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 3695
+Only local connections are allowed.
+12:04:49.408 INFO - Detected dialect: OSS
+12:04:49.411 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+12:04:49.415 INFO - Executing: [get: http://localhost:4000/app/])
+12:04:49.780 INFO - Done: [get: http://localhost:4000/app/]
+12:04:49.786 INFO - Executing: [find elements: By.cssSelector: body])
+12:04:49.817 INFO - Done: [find elements: By.cssSelector: body]
+12:04:49.824 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (cc44f04a96a7cec23687496fccf7c609)] -> css selector: body]])
+12:04:49.842 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (cc44f04a96a7cec23687496fccf7c609)] -> css selector: body]]
+12:04:49.845 INFO - Executing: [find element: By.cssSelector: #login])
+12:04:50.062 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=#login}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:50.063 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=#login}
+12:04:50.099 INFO - Executing: [find element: By.cssSelector: Input[name=identifier]])
+12:04:50.349 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:50.350 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+12:04:50.382 INFO - Executing: [find element: By.cssSelector: Input[name=password]])
+12:04:50.600 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 23 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=Input[name=password]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:50.601 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 23 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=Input[name=password]}
+12:04:50.657 INFO - Executing: [find element: By.cssSelector: Input[type=submit]])
+12:04:50.862 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=Input[type=submit]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:50.862 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.scPglI}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: cc44f04a96a7cec23687496fccf7c609
+*** Element info: {Using=css selector, value=Input[type=submit]}
+12:04:51.919 INFO - Executing: [get current url])
+12:04:51.926 INFO - Done: [get current url]
+12:04:51.929 INFO - Executing: [delete session: 6cc5ba69-2225-410c-86ab-cd2c18bb8080])
+12:04:52.004 INFO - Done: [delete session: 6cc5ba69-2225-410c-86ab-cd2c18bb8080]
+12:04:52.014 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+12:04:52.015 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 4135
+Only local connections are allowed.
+12:04:52.861 INFO - Detected dialect: OSS
+12:04:52.864 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+12:04:52.874 INFO - Executing: [get: http://localhost:4000/app/])
+12:04:53.261 INFO - Done: [get: http://localhost:4000/app/]
+12:04:53.266 INFO - Executing: [find elements: By.cssSelector: body])
+12:04:53.298 INFO - Done: [find elements: By.cssSelector: body]
+12:04:53.301 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (65fc024957db6d4e216f695cc3e53fea)] -> css selector: body]])
+12:04:53.317 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (65fc024957db6d4e216f695cc3e53fea)] -> css selector: body]]
+12:04:53.320 INFO - Executing: [find element: By.cssSelector: #login])
+12:04:53.542 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 22 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=#login}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:53.542 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 22 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=#login}
+12:04:53.576 INFO - Executing: [find element: By.cssSelector: Input[name=identifier]])
+12:04:53.788 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 21 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:53.788 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 21 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+12:04:53.842 INFO - Executing: [find element: By.cssSelector: Input[name=password]])
+12:04:54.063 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=Input[name=password]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:54.064 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=Input[name=password]}
+12:04:54.121 INFO - Executing: [find element: By.cssSelector: Input[type=submit]])
+12:04:54.339 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 23 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=Input[type=submit]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:54.339 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 23 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.hlZyEk}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: 65fc024957db6d4e216f695cc3e53fea
+*** Element info: {Using=css selector, value=Input[type=submit]}
+12:04:55.380 INFO - Executing: [get current url])
+12:04:55.386 INFO - Done: [get current url]
+12:04:55.392 INFO - Executing: [delete session: 56c37164-61e3-4d4d-9516-f7f2d83f9622])
+12:04:55.466 INFO - Done: [delete session: 56c37164-61e3-4d4d-9516-f7f2d83f9622]
+12:04:55.505 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Search Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+12:04:55.506 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Search Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 7551
+Only local connections are allowed.
+12:04:56.403 INFO - Detected dialect: OSS
+12:04:56.405 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Search Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+12:04:56.414 INFO - Executing: [get: http://localhost:4000/app/])
+12:04:56.756 INFO - Done: [get: http://localhost:4000/app/]
+12:04:56.763 INFO - Executing: [find element: By.cssSelector: #login])
+12:04:56.991 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 33 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=#login}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:56.991 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"#login"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 33 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=#login}
+12:04:57.050 INFO - Executing: [find element: By.cssSelector: Input[name=identifier]])
+12:04:57.271 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:57.271 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=identifier]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=Input[name=identifier]}
+12:04:57.314 INFO - Executing: [find element: By.cssSelector: Input[name=password]])
+12:04:57.520 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 18 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=Input[name=password]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:57.521 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[name=password]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 18 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=Input[name=password]}
+12:04:57.549 INFO - Executing: [find element: By.cssSelector: Input[type=submit]])
+12:04:57.761 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=Input[type=submit]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:04:57.761 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":"Input[type=submit]"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 19 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.R3KGyx}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: df6a151e87d0b031f0f8de945227a795
+*** Element info: {Using=css selector, value=Input[type=submit]}
+12:05:02.834 INFO - Executing: [get current url])
+12:05:02.841 INFO - Done: [get current url]
+12:05:02.845 INFO - Executing: [find elements: By.cssSelector: body])
+12:05:02.865 INFO - Done: [find elements: By.cssSelector: body]
+12:05:02.868 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (df6a151e87d0b031f0f8de945227a795)] -> css selector: body]])
+12:05:02.884 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (df6a151e87d0b031f0f8de945227a795)] -> css selector: body]]
+12:05:02.892 INFO - Executing: [find elements: By.cssSelector: #search])
+12:05:02.915 INFO - Done: [find elements: By.cssSelector: #search]
+12:05:02.920 INFO - Executing: [delete session: 11679d7a-fe22-4ee7-8b44-c994096f890a])
+12:05:02.995 INFO - Done: [delete session: 11679d7a-fe22-4ee7-8b44-c994096f890a]
+12:05:03.037 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Signup Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+12:05:03.038 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Signup Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 18715
+Only local connections are allowed.
+12:05:03.880 INFO - Detected dialect: OSS
+12:05:03.882 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Signup Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+12:05:03.886 INFO - Executing: [get: http://localhost:4000/app/])
+12:05:04.248 INFO - Done: [get: http://localhost:4000/app/]
+12:05:04.257 INFO - Executing: [find element: By.cssSelector: .brand-logo])
+12:05:04.467 WARN - Exception thrown
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".brand-logo"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.drirnl}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: dbd09c9edd76ec06bb52822ca89547a4
+*** Element info: {Using=css selector, value=.brand-logo}
+	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:501)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)
+	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:104)
+	at com.sun.proxy.$Proxy4.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:188)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:48)
+	at org.openqa.selenium.remote.server.handler.FindElement.call(FindElement.java:33)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at org.openqa.selenium.remote.server.DefaultSession$1.run(DefaultSession.java:176)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:748)
+12:05:04.467 WARN - Exception: no such element: Unable to locate element: {"method":"css selector","selector":".brand-logo"}
+  (Session info: chrome=58.0.3029.96)
+  (Driver info: chromedriver=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f),platform=Mac OS X 10.12.4 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 30 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'Munachimso-Ugorji.local', ip: 'fe80:0:0:0:14bc:40b7:7a37:dc06%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.4', java.version: '1.8.0_131'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f), userDataDir=/var/folders/j8/bl06nxxd1y95xstyps75jfg00000gn/T/.org.chromium.Chromium.drirnl}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=58.0.3029.96, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
+Session ID: dbd09c9edd76ec06bb52822ca89547a4
+*** Element info: {Using=css selector, value=.brand-logo}
+12:05:04.543 INFO - Executing: [delete session: f0e3d6ef-a69f-490b-9a1e-dfbbf18a8cc9])
+12:05:04.620 INFO - Done: [delete session: f0e3d6ef-a69f-490b-9a1e-dfbbf18a8cc9]

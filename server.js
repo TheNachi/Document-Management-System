@@ -44,7 +44,7 @@ app.get('/swagger.json', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, OPTIONS');
-  res.send(swaggerSpec);
+  res.json(swaggerSpec);
 });
 
 app.use(express.static(path.join(__dirname, 'server/Swagger')));

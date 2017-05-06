@@ -7,7 +7,7 @@ import sinon from 'sinon';
 import supertest from 'supertest';
 import app from '../../../server';
 import Auth from '../../middlewares/auth';
-import { Role } from '../models/index.test';
+import { Role } from '../../models';
 import helper from '../test-helper';
 
 const request = supertest.agent(app);

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="8"
+            failures="1"
+            tests="2">
+
+  <testsuite name="login.test"
+    errors="8" failures="1" hostname="" id="" package="login.test" skipped="0"
+    tests="2" time="6.898" timestamp="Sat, 06 May 2017 11:04:48 GMT">
+  
+    <testcase name="Login Users" classname="login.test" time="3.438" assertions="2">
+<system-out>[[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Login-Users_ERROR_May-06-2017-120450-GMT+0100.png]][[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Login-Users_ERROR_May-06-2017-120450-GMT+0100.png]][[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Login-Users_ERROR_May-06-2017-120450-GMT+0100.png]][[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Login-Users_ERROR_May-06-2017-120450-GMT+0100.png]]</system-out>
+    
+
+    
+    </testcase>
+  
+    <testcase name="Invalid user" classname="login.test" time="3.460" assertions="2">
+<system-out>[[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Invalid-user_ERROR_May-06-2017-120453-GMT+0100.png]][[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Invalid-user_ERROR_May-06-2017-120453-GMT+0100.png]][[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Invalid-user_ERROR_May-06-2017-120454-GMT+0100.png]][[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/login.test/Invalid-user_ERROR_May-06-2017-120454-GMT+0100.png]]</system-out>
+      <failure message="Testing if the URL contains &quot;login&quot;.">    at Object.InvalidUser [as Invalid user] (/Users/andela/Documents/Work/Document-Management-System/client/test/e2e/login.test.js:25:15)
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)</failure>
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

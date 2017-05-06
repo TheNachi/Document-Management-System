@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Role, User } from '../../models/index';
+import { Role, User } from '../../models';
 import helper from '../test-helper';
 
 const userParams = helper.firstUser;

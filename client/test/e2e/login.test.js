@@ -6,11 +6,11 @@ module.exports = {
       .url(config.url)
       .waitForElementVisible('body')
       .click('#login')
-      .setValue('Input[name=identifier]', 'assahna.awa@aun.edu.ng')
-      .setValue('Input[name=password]', 'awa')
+      .setValue('Input[name=identifier]', 'tobeydaniels@gmail.com')
+      .setValue('Input[name=password]', 'turinturamba')
       .click('Input[type=submit]')
       .pause(1000)
-      .assert.urlEquals('http://localhost:3000/')
+      .assert.urlEquals('http://localhost:4000/app/')
       .end();
   },
   'Invalid user': (browser) => {

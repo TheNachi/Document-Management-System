@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="index.test"
+    errors="0" failures="1" hostname="" id="" package="index.test" skipped="0"
+    tests="1" time="1.359" timestamp="Sat, 06 May 2017 11:04:47 GMT">
+  
+    <testcase name="Go to home page" classname="index.test" time="1.359" assertions="2">
+
+      <failure message="Testing if the page title equals &quot;Document Management System&quot;.">    at Object.GoToHomePage [as Go to home page] (/Users/andela/Documents/Work/Document-Management-System/client/test/e2e/index.test.js:8:21)
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)</failure>
+
+    
+    </testcase>
+  
+  
+  </testsuite>
+</testsuites>

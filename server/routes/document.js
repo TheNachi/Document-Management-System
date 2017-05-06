@@ -29,7 +29,7 @@ const documentRouter = express.Router();
  */
 documentRouter.route('/documents')
     /** @swagger
-      *  /api/v1/documents/?limit=4&offset=2:
+      *  /documents/?limit=4&offset=2:
       *   get:
       *     description: Returns {limit} documents from the the {offset}
       *     tags:
@@ -54,7 +54,7 @@ documentRouter.route('/documents')
 
     /**
      * @swagger
-     * /api/v1/documents:
+     * /documents:
      *   post:
      *     description: Creates a document
      *     tags:
@@ -84,9 +84,35 @@ documentRouter.route('/documents')
      */
     .post(auth.verifyToken, Documents.create);
 
+    /**
+     * @swagger
+     * definitions:
+     *   NewDocUpdate:
+     *     type: object
+     *     required:
+     *       - title
+     *       - content
+     *       - access
+     *     properties:
+     *       title:
+     *         type: string
+     *       content:
+     *         type: string
+     *       access:
+     *         type: string
+     *   DocUpdate:
+     *     allOf:
+     *       - $ref: '#/definitions/NewDocUpdate'
+     *       - required:
+     *         - id
+     *       - properties:
+     *         id:
+     *           type: integer
+     *           format: int64
+     */
 documentRouter.route('/documents/:id')
     /** @swagger
-      *  /api/v1/documents/:id:
+      *  /documents/:id:
       *   get:
       *     description: Returns {limit} documents from the the {offset}
       *     tags:
@@ -111,7 +137,7 @@ documentRouter.route('/documents/:id')
 
     /**
      * @swagger
-     * /api/v1/documents/:id:
+     * /documents/:id:
      *   put:
      *     description: Update  a document
      *     tags:
@@ -143,7 +169,7 @@ documentRouter.route('/documents/:id')
 
     /**
      * @swagger
-     * /api/v1/documents/1:
+     * /documents/1:
      *    delete:
      *      description: Deletes the document with the id of 1
      *      tags:
@@ -166,7 +192,50 @@ documentRouter.route('/documents/:id')
      */
     .delete(auth.verifyToken, Documents.destroy);
 
+    /**
+     * @swagger
+     * definitions:
+     *   NewSearchDocument:
+     *     type: object
+     *   SearchDocument:
+     *     allOf:
+     *       - $ref: '#/definitions/NewSearchDocument'
+     *       - required:
+     *         - id
+     *       - properties:
+     *         id:
+     *           type: integer
+     *           format: int64
+     */
 documentRouter.route('/search/documents')
+    /**
+     * @swagger
+     * /search/documents/?q={document_title}:
+     *   get:
+     *     description: Returns the documents that matches the title
+     *     tags:
+     *      - Find Documents
+     *     produces:
+     *      - application/json
+     *     parameters:
+     *       - name: document_title
+     *         description: The document's title
+     *         in:  path
+     *         required: true
+     *         type: string
+     *       - name: x-access-token
+     *         in: header
+     *         description: an authorization header
+     *         required: true
+     *         type: string
+     *     responses:
+     *       200:
+     *         description: documents
+     *         schema:
+     *           type: array
+     *           items:
+     *             $ref: '#/definitions/SearchDocument'
+     */
     .get(auth.verifyToken, Documents.search);
 
 export default documentRouter;
