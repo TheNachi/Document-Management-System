@@ -5,7 +5,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
   return (
     <div className="backgrd">
       <form onSubmit={onSubmit}>
-      <h4>Register</h4>
+      <h4>Sign Up</h4>
       <Row>
         <Input
           s={6}

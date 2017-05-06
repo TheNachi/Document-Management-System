@@ -19,9 +19,7 @@ class LoginPage extends React.Component {
 
   isValid() {
     const { errors, isValid } = validateInput(this.state);
-
     if (!isValid) this.setState({ errors });
-
     return isValid;
   }
 
@@ -33,8 +31,11 @@ class LoginPage extends React.Component {
         () => {
           this.context.router.push('/app/');
         },
-
-        ({ data }) => this.setState({ errors: data })
+        ({ data }) => {
+          const errors = {};
+          errors.form = data.message;
+          this.setState({ errors });
+        }
       );
     }
   }

@@ -1,5 +1,5 @@
 import express from 'express';
-import documentsController from '../controllers/documents';
+import Documents from '../controllers/documents';
 import auth from '../middlewares/auth';
 
 const documentRouter = express.Router();
@@ -50,7 +50,7 @@ documentRouter.route('/documents')
       *            items:
       *              $ref: '#/definitions/Document'
       */
-    .get(auth.verifyToken, documentsController.list)
+    .get(auth.verifyToken, Documents.list)
 
     /**
      * @swagger
@@ -82,7 +82,7 @@ documentRouter.route('/documents')
      *          items:
      *            $ref: '#/definitions/Document'
      */
-    .post(auth.verifyToken, documentsController.create);
+    .post(auth.verifyToken, Documents.create);
 
 documentRouter.route('/documents/:id')
     /** @swagger
@@ -107,7 +107,7 @@ documentRouter.route('/documents/:id')
       *            items:
       *              $ref: '#/definitions/Document'
       */
-    .get(auth.verifyToken, documentsController.retrieve)
+    .get(auth.verifyToken, Documents.retrieve)
 
     /**
      * @swagger
@@ -139,7 +139,7 @@ documentRouter.route('/documents/:id')
      *          items:
      *            $ref: '#/definitions/Document'
      */
-    .put(auth.verifyToken, documentsController.update)
+    .put(auth.verifyToken, auth.permitOwner, Documents.update)
 
     /**
      * @swagger
@@ -164,10 +164,10 @@ documentRouter.route('/documents/:id')
      *            items:
      *              $ref: '#/definitions/Document'
      */
-    .delete(auth.verifyToken, documentsController.destroy);
+    .delete(auth.verifyToken, Documents.destroy);
 
 documentRouter.route('/search/documents')
-    .get(auth.verifyToken, documentsController.search);
+    .get(auth.verifyToken, Documents.search);
 
 export default documentRouter;
 

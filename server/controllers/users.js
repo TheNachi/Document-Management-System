@@ -1,24 +1,12 @@
 import bcrypt from 'bcrypt';
 import isEmpty from 'lodash/isEmpty';
 import jwt from 'jsonwebtoken';
-import { User, Role } from '../models';
+import { User, Role, ExpiredToken } from '../models';
 import config from '../config';
+import Helper from '../helpers/paginateHelper';
+import UsersHelper from '../helpers/helper';
 
-const permittedAttributes = (user) => {
-  const attributes = {
-    id: user.id,
-    username: user.username,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    email: user.email,
-    RoleId: user.RoleId,
-    createdAt: user.createdAt,
-    updatedAt: user.updatedAt
-  };
-  return attributes;
-};
-
-export default {
+const Users = {
 
   /**
    * Create a user
@@ -28,43 +16,11 @@ export default {
    * @returns {Response|void} response object or void
    */
   create(req, res) {
-    const { username, firstName, lastName, email, password } = req.body;
-    const RoleId = req.body.RoleId && req.body.RoleId < 3 ? req.body.RoleId : 2;
-    User.findOne(
-      { where: {
-        $or: [{ username }, { email }]
-      } })
-      .then((existingUser) => {
-        const errors = {};
-        if (existingUser) {
-          if (existingUser.username === username) {
-            errors.username = 'There is user with such username';
-          }
-          if (existingUser.email === email) {
-            errors.email = 'There is user with such email';
-          }
-          res.status(409).send(errors);
-        } else {
-          User.create({
-            username,
-            firstName,
-            lastName,
-            email,
-            password,
-            RoleId
-          }).then((user) => {
-            const token = jwt.sign({
-              UserId: user.id,
-              RoleId: user.RoleId
-            }, config.jwtSecret, { expiresIn: 86400 });
-            user = permittedAttributes(user);
-            res.status(201).send({ token, expiresIn: 86400, user });
-          })
-          .catch((err) => {
-            res.status(400).send({ error: err });
-          });
-        }
-      });
+    User.create(req.userInput).then((user) => {
+      const token = UsersHelper.getToken(user);
+      user = UsersHelper.permittedAttributes(user);
+      res.status(201).send({ token, expiresIn: 86400, user });
+    });
   },
 
   /**
@@ -75,23 +31,29 @@ export default {
    * @returns {void} no returns
    */
   list(req, res) {
-    User.findAll({
-      attributes: [
-        'id',
-        'username',
-        'firstName',
-        'lastName',
-        'email',
-        'RoleId',
-        'createdAt',
-        'updatedAt'
-      ],
+    const query = {
+      attributes: UsersHelper.getUserAttribute(),
       include: [{
         model: Role,
         as: 'Role',
-      }]
-    }).then((users) => {
-      res.send(users);
+      }],
+      limit: req.query.limit || 10,
+      offset: req.query.offset || 0,
+      order: [['createdAt', 'DESC']]
+    };
+    User.findAndCountAll(query).then((users) => {
+      const condition = {
+        count: users.count,
+        limit: query.limit,
+        offset: query.offset
+      };
+      delete users.count;
+      const pagination = Helper.pagination(condition);
+      res.status(200)
+        .send({
+          pagination,
+          rows: users.rows
+        });
     });
   },
 
@@ -109,7 +71,7 @@ export default {
           return res.status(404)
             .send({ message: `User with id: ${req.params.id} not found` });
         }
-        user = permittedAttributes(user);
+        user = UsersHelper.permittedAttributes(user);
         res.send(user);
       });
   },
@@ -130,7 +92,7 @@ export default {
         }
         user.update(req.body)
           .then((updatedUser) => {
-            updatedUser = permittedAttributes(updatedUser);
+            updatedUser = UsersHelper.permittedAttributes(updatedUser);
             res.send(updatedUser);
           });
       });
@@ -171,24 +133,15 @@ export default {
       }
     })
     .then((user) => {
-      const errors = {};
-      if (user) {
-        if (bcrypt.compareSync(password, user.password)) {
-          const token = jwt.sign({
-            UserId: user.id,
-            RoleId: user.RoleId
-          }, config.jwtSecret, { expiresIn: 86400 });
-
-          res.send({ token, expiresIn: 86400 });
-        } else {
-          errors.form = 'Invalid Credentials';
-          res.status(401)
-            .send(errors);
-        }
+      if (user && bcrypt.compareSync(password, user.password)) {
+        const token = UsersHelper.getToken(user);
+        user = UsersHelper.permittedAttributes(user);
+        res.status(201).send({ token, expiresIn: 86400, user });
       } else {
-        errors.form = 'Invalid Credentials';
         res.status(401)
-            .send(errors);
+        .send({
+          message: 'Please enter a valid username/email or password to log in'
+        });
       }
     });
   },
@@ -201,7 +154,10 @@ export default {
    * @returns {Response|void} response object or void
    */
   logout(req, res) {
-    res.send({ message: 'Logout successful.' });
+    ExpiredToken.create({ token: req.headers.authorization })
+      .then(() => {
+        res.status(204).send({ message: 'Logout successful.' });
+      });
   },
 
   /**
@@ -212,7 +168,7 @@ export default {
    * @returns {void} no returns
    */
   search(req, res) {
-    User.findAll({
+    const query = {
       where: {
         $or: [{
           username: {
@@ -226,23 +182,33 @@ export default {
           lastName: {
             $iLike: `%${req.query.q}%`
           }
-        },
-        {
+        }, {
           email: {
             $iLike: `%${req.query.q}%`
           }
-        }]
-      }
-    }).then((users) => {
-      if (!users) {
-        return res.status(404)
-            .send({ message: 'No user found' });
-      }
-      const results = users.map(user => permittedAttributes(user));
+        }],
+      },
+      limit: req.query.limit || 10,
+      offset: req.query.offset || 0,
+      order: [['createdAt', 'DESC']]
+    };
+    User.findAndCountAll(query).then((users) => {
+      const results = users.rows.map(user => UsersHelper.permittedAttributes(user));
+      const condition = {
+        count: users.count,
+        limit: query.limit,
+        offset: query.offset
+      };
+      delete users.count;
+      const pagination = Helper.pagination(condition);
+      res.status(200)
+        .send({
+          pagination,
+          rows: results
+        });
       res.status(200).send(results);
-    })
-      .catch((err) => {
-        res.status(400).send(err);
-      });
+    });
   }
 };
+
+export default Users;

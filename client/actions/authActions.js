@@ -2,24 +2,32 @@ import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import * as types from './types';
-import { setDocuments } from './documentActions';
 
-export function setCurrentUser(user) {
-  return {
-    type: types.SET_CURRENT_USER,
-    user,
-  };
-}
 
+/**
+ * Dispatch action to logout a user
+ * @returns {Object} function
+ */
 export function logout() {
   return (dispatch) => {
     window.localStorage.removeItem('jwtToken');
     setAuthorizationToken(false);
-    dispatch(setCurrentUser({}));
-    dispatch(setDocuments([]));
+    dispatch({
+      type: types.SET_CURRENT_USER,
+      user: {}
+    });
+    dispatch({
+      type: types.SET_DOCUMENTS,
+      documents: [],
+    });
   };
 }
 
+/**
+ * Dispatch action to login a user
+ * @param {any} data
+ * @returns {Object} function
+ */
 export function login(data) {
   return dispatch =>
      axios.post('/users/login', data)
@@ -27,6 +35,9 @@ export function login(data) {
         const token = res.data.token;
         window.localStorage.setItem('jwtToken', token);
         setAuthorizationToken(token);
-        dispatch(setCurrentUser(jwt.decode(token)));
+        dispatch({
+          type: types.SET_CURRENT_USER,
+          user: jwt.decode(token),
+        });
       });
 }

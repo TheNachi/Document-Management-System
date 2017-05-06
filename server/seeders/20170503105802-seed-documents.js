@@ -7,96 +7,84 @@ module.exports = {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'private',
-        OwnerId: 1,
-        RoleId: 1,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'private',
-        OwnerId: 1,
-        RoleId: 2,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'public',
-        OwnerId: 2,
-        RoleId: 2,
+        ownerId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'role',
-        OwnerId: 1,
-        RoleId: 2,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'private',
-        OwnerId: 1,
-        RoleId: 2,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'public',
-        OwnerId: 2,
-        RoleId: 2,
+        ownerId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'role',
-        OwnerId: 1,
-        RoleId: 1,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'private',
-        OwnerId: 2,
-        RoleId: 1,
+        ownerId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'private',
-        OwnerId: 1,
-        RoleId: 2,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'public',
-        OwnerId: 1,
-        RoleId: 2,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'private',
-        OwnerId: 1,
-        RoleId: 1,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }, {
         title: faker.company.catchPhrase(),
         content: faker.lorem.paragraph(),
         access: 'role',
-        OwnerId: 1,
-        RoleId: 2,
+        ownerId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }

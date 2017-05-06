@@ -1,6 +1,6 @@
 import express from 'express';
-import usersController from '../controllers/users';
-import documentsController from '../controllers/documents';
+import Users from '../controllers/users';
+import Documents from '../controllers/documents';
 import auth from '../middlewares/auth';
 
 const userRouter = express.Router();
@@ -112,7 +112,7 @@ userRouter.route('/users')
      *            items:
      *              $ref: '#/definitions/User'
      */
-    .get(auth.verifyToken, auth.permitAdmin, usersController.list)
+    .get(auth.verifyToken, Users.list)
     /**
      * @swagger
      * /api/v1/users:
@@ -138,10 +138,9 @@ userRouter.route('/users')
      *          items:
      *            $ref: '#/definitions/User'
      */
-    .post(usersController.create);
+    .post(auth.validateUserInput, Users.create);
 
 userRouter.route('/users/:id')
-    .all()
   /**
    * @swagger
    * /api/v1/users/1:
@@ -165,7 +164,7 @@ userRouter.route('/users/:id')
    *            items:
    *              $ref: '#/definitions/User'
    */
-    .get(auth.verifyToken, usersController.retrieve)
+    .get(auth.verifyToken, Users.retrieve)
     /**
      * @swagger
      * /api/v1/users/1:
@@ -196,7 +195,7 @@ userRouter.route('/users/:id')
      *          items:
      *            $ref: '#/definitions/User'
      */
-    .put(auth.verifyToken, usersController.update)
+    .put(auth.verifyToken, Users.update)
 
     /**
      * @swagger
@@ -221,7 +220,7 @@ userRouter.route('/users/:id')
      *            items:
      *              $ref: '#/definitions/User'
      */
-    .delete(auth.verifyToken, usersController.destroy);
+    .delete(auth.verifyToken, auth.permitAdmin, Users.destroy);
 
   /**
    * @swagger
@@ -254,7 +253,7 @@ userRouter.route('/users/:id')
    *            $ref: '#/definitions/Login'
    */
 userRouter.route('/users/login')
-      .post(usersController.login);
+      .post(auth.validateLoginInput, Users.login);
 
   /**
    * @swagger
@@ -278,10 +277,10 @@ userRouter.route('/users/login')
    *            type: array
    */
 userRouter.route('/users/:id/documents')
-    .get(auth.verifyToken, documentsController.userDocuments);
+    .get(auth.verifyToken, Documents.userDocuments);
 userRouter.route('/search/users')
-    .get(auth.verifyToken, usersController.search);
+    .get(auth.verifyToken, Users.search);
 userRouter.route('/users/logout')
-    .post(usersController.logout);
+    .post(Users.logout);
 
 export default userRouter;
