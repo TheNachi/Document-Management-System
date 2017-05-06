@@ -3,7 +3,7 @@ import { Row, Input, Button } from 'react-materialize';
 
 const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
   return (
-    <form>
+    <form className='bac'>
       <h5>Create/Update a Document</h5>
       <Row>
         <Input

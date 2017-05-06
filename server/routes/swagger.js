@@ -1,14 +1,12 @@
-import swaggerJSDoc from 'swagger-jsdoc';
-import express from 'express';
 
-const swaggerRouter = express.Router();
+import swaggerJSDoc from 'swagger-jsdoc';
 
   // swagger definition
 const swaggerDefinition = {
   info: {
-    title: 'iamdocuman API',
+    title: 'Document Management System API',
     version: '1.0.0',
-    description: 'API documentation for iAmDocuman',
+    description: 'API documentation for to create, manage and edit documents',
   }
 };
 
@@ -17,18 +15,10 @@ const options = {
   // import swaggerDefinitions
   swaggerDefinition,
   // path to the API docs
-  apis: ['./server/routes/document.js', './server/routes/user.js'],
+  apis: ['./server/config/routes/document.js', './server/config/routes/users.js', './server/config/routes/role.js'],
 };
 
 // initialize swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(options);
 
-swaggerRouter.get('/swagger.json', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With');
-  res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, OPTIONS');
-  res.send(swaggerSpec);
-});
-
-export default swaggerRouter;
+export default swaggerSpec;
