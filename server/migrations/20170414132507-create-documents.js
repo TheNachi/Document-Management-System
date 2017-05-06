@@ -15,22 +15,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      OwnerId: {
+      ownerId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'Users',
           key: 'id',
-          as: 'OwnerId'
-        }
-      },
-      RoleId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Roles',
-          key: 'id',
-          as: 'RoleId'
+          as: 'ownerId'
         }
       },
       access: {

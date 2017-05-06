@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 import auth from './auth';
 import documents from './documents';
-import admin from './admin';
+import users from './users';
 import search from './search';
-import profile from './profile';
+import user from './profile';
+import paginate from './paginate';
 
 export default combineReducers({
   auth,
   documents,
-  admin,
+  users,
   search,
-  profile,
+  user,
+  paginate
 });

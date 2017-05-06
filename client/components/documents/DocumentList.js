@@ -1,7 +1,9 @@
 import React from 'react';
+import { Pagination } from 'react-materialize';
 import DocumentCard from './DocumentCard';
 
-export default function DocumentsList({ documents, deleteDocument }) {
+export default function 
+DocumentsList({ documents, deleteDocument, currentUser }) {
   const emptyMessage = (
     <p>No documents Found</p>
   );
@@ -10,7 +12,8 @@ export default function DocumentsList({ documents, deleteDocument }) {
     <div className="row">
       {documents.map(document => <DocumentCard
       document={document} key={document.id}
-      deleteDocument={deleteDocument} />)}
+      deleteDocument={deleteDocument}
+      currentUser={currentUser} />)}
     </div>
   );
 
@@ -24,4 +27,5 @@ export default function DocumentsList({ documents, deleteDocument }) {
 DocumentsList.propTypes = {
   documents: React.PropTypes.array.isRequired,
   deleteDocument: React.PropTypes.func.isRequired,
+  currentUser: React.PropTypes.object.isRequired
 };

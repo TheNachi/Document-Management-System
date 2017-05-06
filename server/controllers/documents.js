@@ -1,7 +1,19 @@
 import { User, Document } from '../models';
+import Helper from '../helpers/paginateHelper';
 
-export default {
+const ownerParams =
+  [{
+    model: User,
+    as: 'owner',
+    attributes: [
+      'username',
+      'firstName',
+      'lastName',
+      'email'
+    ]
+  }];
 
+const Documents = {
   /**
    * Create a document
    * Route: POST: /documents
@@ -11,11 +23,13 @@ export default {
    */
   create(req, res) {
     const { title, content, access } = req.body;
-    const OwnerId = req.decoded.UserId;
-    const RoleId = req.decoded.RoleId;
-    Document.create({ title, content, access, OwnerId, RoleId })
+    const ownerId = req.decoded.userId;
+    Document.create({ title, content, access, ownerId })
       .then((document) => {
-        res.status(201).send(document);
+        Document.findById(document.id,
+         { include: ownerParams })
+         .then(documentFetched =>
+           res.status(201).send(documentFetched));
       })
       .catch((err) => {
         res.status(400).send(err.errors);
@@ -34,16 +48,28 @@ export default {
       where: {
         $or: [
           { access: 'public' },
-          { OwnerId: req.decoded.UserId },
+          { ownerId: req.decoded.userId },
         ]
       },
-      limit: req.query.limit || null,
-      offset: req.query.offset || null,
+      include: ownerParams,
+      limit: req.query.limit || 10,
+      offset: req.query.offset || 0,
       order: [['createdAt', 'DESC']]
     };
 
-    Document.findAll(query).then((documents) => {
-      res.send(documents);
+    Document.findAndCountAll(query).then((documents) => {
+      const condition = {
+        count: documents.count,
+        limit: query.limit,
+        offset: query.offset
+      };
+      delete documents.count;
+      const pagination = Helper.pagination(condition);
+      res.status(200)
+        .send({
+          pagination,
+          rows: documents.rows
+        });
     });
   },
 
@@ -55,7 +81,7 @@ export default {
    * @returns {void|Response} response object or void
    */
   retrieve(req, res) {
-    Document.findById(req.params.id)
+    Document.findById(req.params.id, { include: ownerParams })
       .then((document) => {
         if (!document) {
           return res.status(404)
@@ -63,19 +89,19 @@ export default {
         }
 
         if ((document.access === 'public') ||
-          (document.OwnerId === req.decoded.UserId)) {
+          (document.ownerId === req.decoded.userId)) {
           return res.send(document);
         }
 
-        User.findById(document.OwnerId)
-          .then((owner) => {
-            if (owner.RoleId === req.decoded.RoleId) {
-              return res.send(document);
-            }
+        User.findById(document.ownerId)
+            .then((owner) => {
+              if (owner.roleId === req.decoded.roleId) {
+                return res.send(document);
+              }
 
-            res.status(403)
-              .send({ message: 'You cannot access this document.' });
-          });
+              res.status(403)
+                .send({ message: 'You cannot access this document.' });
+            });
       });
   },
 
@@ -96,7 +122,10 @@ export default {
 
         document.update(req.body)
           .then((updatedDocument) => {
-            res.send(updatedDocument);
+            Document.findById(updatedDocument.id,
+              { include: ownerParams })
+              .then(doc =>
+                res.status(201).send(doc));
           }).catch((err) => {
             res.status(400).send(err);
           });
@@ -130,7 +159,7 @@ export default {
    * @returns {void} no returns
    */
   userDocuments(req, res) {
-    Document.findAll({ where: { OwnerId: req.params.id } })
+    Document.findAll({ where: { ownerId: req.params.id } })
       .then((documents) => {
         res.send(documents);
       });
@@ -149,12 +178,13 @@ export default {
       where: {
         $and: [{ $or: [
           { access: 'public' },
-          { OwnerId: req.decoded.UserId },
+          { ownerId: req.decoded.userId },
         ],
         }],
       },
-      limit: req.query.limit || null,
-      offset: req.query.offset || null,
+      include: [{ model: User, as: 'owner' }],
+      limit: req.query.limit || 10,
+      offset: req.query.offset || 0,
       order: [['createdAt', 'DESC']]
     };
 
@@ -164,11 +194,21 @@ export default {
       ] });
     }
 
-    Document.findAll(query)
-      .then((documents) => {
-        res.send(documents);
-      }).catch((err) => {
-        res.status(400).send(err);
-      });
+    Document.findAndCountAll(query).then((documents) => {
+      const condition = {
+        count: documents.count,
+        limit: query.limit,
+        offset: query.offset
+      };
+      delete documents.count;
+      const pagination = Helper.pagination(condition);
+      res.status(200)
+        .send({
+          pagination,
+          rows: documents.rows
+        });
+    });
   }
 };
+
+export default Documents;

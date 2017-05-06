@@ -15,19 +15,14 @@ module.exports = (sequelize, DataTypes) => {
         isIn: [['private', 'public', 'role']]
       }
     },
-    OwnerId: DataTypes.INTEGER,
-    RoleId: DataTypes.INTEGER,
+    ownerId: DataTypes.INTEGER,
   }, {
     classMethods: {
       associate(models) {
         Document.belongsTo(models.User, {
-          as: 'Owner',
+          as: 'owner',
           onDelete: 'CASCADE',
-          foreignKey: 'OwnerId'
-        });
-        Document.belongsTo(models.Role, {
-          onDelete: 'CASCADE',
-          foreignKey: 'RoleId'
+          foreignKey: 'ownerId'
         });
       }
     }

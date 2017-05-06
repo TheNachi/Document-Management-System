@@ -1,9 +1,10 @@
 import React from 'react';
 import { Row, Input, Button } from 'react-materialize';
+import TinyMCE from 'react-tinymce';
 
 const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
   return (
-    <form className='bac'>
+    <form>
       <h5>Create/Update a Document</h5>
       <Row>
         <Input
@@ -16,17 +17,17 @@ const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
           error={errors.title}
           id="title"
         />
-        <Input
-          placeholder="Content"
-          s={12}
-          validate
-          type="textarea"
-          name="content"
-          onChange={onChange}
-          value={document.content}
-          error={errors.content}
-          id="content"
-        />
+        <div className="input-field col s12">
+          <TinyMCE
+            id="content"
+            content={document.content}
+            config={{
+              plugins: 'autolink link image lists print preview',
+              toolbar: 'undo redo | bold italic | alignleft aligncenter alignright'
+            }}
+            onChange={onChange}
+          />
+        </div>
         <div className="input-field col s6">
           <select
             style={{ display: 'block' }}
@@ -35,8 +36,9 @@ const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
             onChange={onChange}
             name="access"
           >
-            <option value="public" defaultValue>Public</option>
-            <option value="private" >Private</option>
+            <option defaultValue>Select Access</option>
+            <option value="public">Public</option>
+            <option value="private">Private</option>
             <option value="role" >Role</option>
           </select>
         </div>
