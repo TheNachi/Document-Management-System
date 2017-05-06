@@ -71,7 +71,7 @@ class ProfileForm extends Component {
                 required
               />
               <Input
-              label="Email"
+                label="Email"
                 s={6}
                 name="email"
                 value={this.state.email}

@@ -9,7 +9,8 @@ const LoginForm = ({ errors, onChange, loginProps, onSubmit }) => {
       <Row>
         {errors.form && <div style={{ color: '#F44336' }}>{errors.form}</div>}
         <Input
-          s={6}
+          label="Username or Email"
+          s={12}
           placeholder="Username or Email"
           onChange={onChange}
           value={loginProps.identifier}
@@ -17,7 +18,8 @@ const LoginForm = ({ errors, onChange, loginProps, onSubmit }) => {
           id="identifier"
           />
         <Input
-          s={6}
+          label="Password"
+          s={12}
           placeholder="Password"
           onChange={onChange}
           value={loginProps.password}

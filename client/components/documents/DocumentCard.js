@@ -8,8 +8,8 @@ export default function DocumentCard({ document, deleteDocument, currentUser }) 
       <div className="card blue-grey darken-1">
         <div className="card-content white-text">
           <span className="card-title">{document.title}</span>
-          <p dangerouslySetInnerHTML={{ __html: document.content }} /><br />
-          <p>Access Type: &nbsp; <span>{(document.access).toUpperCase()}</span></p><br />
+          <p dangerouslySetInnerHTML={{ __html: document.content }} className="document-content" /><br />
+          <p className="access-type">Access Type: &nbsp; <span>{(document.access).toUpperCase()}</span></p><br />
           <div>
               Published Date :
             <p>{(document.createdAt) ? document.createdAt.split('T')[0] : ''}</p>
@@ -18,6 +18,9 @@ export default function DocumentCard({ document, deleteDocument, currentUser }) 
           </div>
         </div>
         <div className="card-action">
+          <Link to={`/app/document-details/${document.id}`}>
+              Details
+          </Link>
           {currentUser.userId === document.ownerId &&
             <div className="right">
               <Link to={`/app/document/${document.id}`}>Edit</Link>

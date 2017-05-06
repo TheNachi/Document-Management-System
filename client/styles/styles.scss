@@ -34,7 +34,6 @@ body {
 #hero {
   background-position: center center;
   background-size: cover;
-  /*background-image: url("../images/coffee.jpg");*/
   height: 100vh;
 }
 h2 {
@@ -58,4 +57,14 @@ nav .nav-wrapper, .nav-holder {
   padding: 20px;
   box-shadow: 2px 2px 4px #888;
   margin-top: 30px;
+}
+
+.document-content {
+  height: 90px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.qBox {
+  box-shadow: 10px 10px 30px #333;
 }
