@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import toastr from 'toastr';
-import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import * as documentActions from '../../actions/documentActions';
 import DocumentDetails from './DocumentDetails';

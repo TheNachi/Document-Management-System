@@ -12,7 +12,7 @@ const privateDocumentParams = helper.privateDocument;
 const roleDocumentParams = helper.roleDocument;
 const documentParamsArray = helper.documentArray();
 const userParams = helper.firstUser;
-const ownerParams = helper.secondUser;
+const ownerParams = helper.secondUser;\
 
 let document, privateDocument, roleDocument,
   user, owner, adminRole, regularRole, token, ownerToken;

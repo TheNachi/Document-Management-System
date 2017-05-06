@@ -1,28 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import EditUserRole from './EditUserRole';
-import * as adminActions from '../../actions/userActions';
 
 class UserRow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: Object.assign({}, props.user),
-    };
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(event) {
-    event.preventDefault();
-    const field = event.target.name;
-    const user = this.state.user;
-    user[field] = event.target.value;
-    this.setState({ user });
-    this.props.actions.updateUser(user);
-  }
 
   render() {
     const { user, deleteUser, auth } = this.props;
@@ -46,13 +24,6 @@ UserRow.propTypes = {
   user: React.PropTypes.object.isRequired,
   deleteUser: React.PropTypes.func.isRequired,
   auth: React.PropTypes.object.isRequired,
-  actions: React.PropTypes.object.isRequired,
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(adminActions, dispatch),
-  };
-}
-
-export default connect(null, mapDispatchToProps)(UserRow);
+export default UserRow;
