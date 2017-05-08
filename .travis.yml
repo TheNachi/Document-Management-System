@@ -5,9 +5,8 @@ node_js: "6"
 script: npm test
 services:
   - postgresql
-before_script:
-  - psql -c 'create database "dms-test";' -U postgres
 before_install:
+ - psql -c 'create database "dms-test";' -U postgres
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
  - sh -e /etc/init.d/xvfb start
@@ -15,7 +14,7 @@ before_install:
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
-after_install:
+install:
  - NODE_ENV=test sequelize db:migrate
 after_success: npm run coverage
 env:
