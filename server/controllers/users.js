@@ -1,8 +1,5 @@
 import bcrypt from 'bcrypt';
-import isEmpty from 'lodash/isEmpty';
-import jwt from 'jsonwebtoken';
 import { User, Role, ExpiredToken } from '../models';
-import config from '../config';
 import Helper from '../helpers/paginateHelper';
 import UsersHelper from '../helpers/helper';
 

@@ -13,8 +13,8 @@ module.exports = {
      .waitForElementVisible('body')
      .assert.elementPresent('#search')
      .click('#search')
-     .setValue('#search', 'React Test Full Rendering API')
-     .assert.containsText('.card-title', 'React Test Full Rendering API')
+     .setValue('#search', 'Fully-configurable even-keeled framework')
+     .assert.containsText('.card-title', 'Fully-configurable even-keeled framework')
      .pause(2000)
      .end();
   },

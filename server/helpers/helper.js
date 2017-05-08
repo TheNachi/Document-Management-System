@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-// import config from '../config';
+
 require('dotenv').config();
 
 const UsersHelper = {

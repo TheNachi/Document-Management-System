@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-import config from '../config';
 import { Role, User, Document, ExpiredToken } from '../models';
 
 export default {
@@ -13,7 +12,7 @@ export default {
       if (foundToken) {
         return res.status(401).send({ message: 'Unauthorized Access' });
       }
-      jwt.verify(token, config.jwtSecret, (err, decoded) => {
+      jwt.verify(token, process.env.MY_SECRET, (err, decoded) => {
         if (err) {
           return res.status(401).send({ message: 'Invalid Token' });
         }

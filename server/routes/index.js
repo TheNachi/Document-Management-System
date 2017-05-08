@@ -1,5 +1,3 @@
-
-
 import userRouter from './user';
 import roleRouter from './role';
 import documentRouter from './document';

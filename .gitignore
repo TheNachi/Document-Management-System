@@ -1,5 +1,9 @@
 node_modules
+reports
 coverage
 .DS_Store
 .env
 dist
+.nyc_output
+.dist
+screenshots

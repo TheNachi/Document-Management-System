@@ -60,7 +60,7 @@ const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
 };
 
 DocumentForm.propTypes = {
-  document: React.PropTypes.object.isRequired,
+  // document: React.PropTypes.object.isRequired,
   onSave: React.PropTypes.func.isRequired,
   onChange: React.PropTypes.func.isRequired,
   saving: React.PropTypes.bool.isRequired,

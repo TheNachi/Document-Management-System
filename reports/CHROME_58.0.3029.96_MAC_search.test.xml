@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="1"
+            failures="0"
             tests="1">
 
   <testsuite name="search.test"
-    errors="0" failures="1" hostname="" id="" package="search.test" skipped="0"
-    tests="1" time="10.08" timestamp="Sat, 06 May 2017 15:14:59 GMT">
+    errors="0" failures="0" hostname="" id="" package="search.test" skipped="0"
+    tests="1" time="12.79" timestamp="Mon, 08 May 2017 12:30:47 GMT">
   
-    <testcase name="Search" classname="search.test" time="10.08" assertions="4">
+    <testcase name="Search" classname="search.test" time="12.79" assertions="4">
 
     
 
     
 
-      <failure message="Testing if element &lt;.card-title&gt; contains text: &quot;React Test Full Rendering API&quot;.">    at Object.Search (/Users/andela/Documents/Work/Document-Management-System/client/test/e2e/search.test.js:17:14)
-    at _combinedTickCallback (internal/process/next_tick.js:67:7)</failure>
+    
 
     
     </testcase>

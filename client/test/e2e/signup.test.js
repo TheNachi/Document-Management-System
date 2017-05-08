@@ -6,7 +6,7 @@ module.exports = {
   'Sign up': (browser) => {
     browser
         .url(config.url)
-        .assert.containsText('.brand-logo', 'DMS')
+        .assert.containsText('.brand-logo', 'Document Management System')
         .element('css selector', '#signup')
         .click('#signup')
         .moveToElement('#signup', 0, 0)

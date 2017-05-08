@@ -54,7 +54,7 @@ class DocumentsPage extends React.Component {
             <Search onChange={this.handleSearch} />
           </div>
           <div className="col s5 pull-s7" id="createdocument">
-            <Link className="btn create-list-link blue-grey darken-1" to="/app/document">
+            <Link className="btn create-list-link blue-grey darken-1 hero-btn" to="/app/document">
               Add Document
             </Link>
           </div>

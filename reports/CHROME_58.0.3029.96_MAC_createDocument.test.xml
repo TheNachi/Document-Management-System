@@ -5,9 +5,9 @@
 
   <testsuite name="createDocument.test"
     errors="0" failures="0" hostname="" id="" package="createDocument.test" skipped="0"
-    tests="1" time="14.59" timestamp="Sat, 06 May 2017 15:14:27 GMT">
+    tests="1" time="13.17" timestamp="Mon, 08 May 2017 12:30:09 GMT">
   
-    <testcase name="Create document" classname="createDocument.test" time="14.59" assertions="5">
+    <testcase name="Create document" classname="createDocument.test" time="13.17" assertions="5">
 
     
 
@@ -16,7 +16,7 @@
     
 
     
-<system-out>[[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/createDocument.test/Create-document_ERROR_May-06-2017-161441-GMT+0100.png]]</system-out>
+<system-out>[[ATTACHMENT|/Users/andela/Documents/Work/Document-Management-System/screenshots/createDocument.test/Create-document_ERROR_May-08-2017-133021-GMT+0100.png]]</system-out>
     
     </testcase>
   
