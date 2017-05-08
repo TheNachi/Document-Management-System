@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { Role, User, Document, ExpiredToken } from '../models';
+import { Role, User, Document, ExpiredToken } from '../models/';
 
 export default {
   verifyToken(req, res, next) {

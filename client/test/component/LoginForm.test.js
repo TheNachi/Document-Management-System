@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import LoginForm from '../../components/login/LoginForm';
+import LoginForm from '../../components/login/LoginForm.components.jsx';
 
 function setup() {
   const props = {

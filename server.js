@@ -5,8 +5,8 @@ const webpackConfig = require('./webpack.config');
 const path = require('path');
 const express = require('express');
 const parser = require('body-parser');
-const route = require('./server/routes');
-const swaggerSpec = require('./server/routes/swagger');
+const route = require('./server/routes/');
+const swaggerSpec = require('./server/routes/swaggerRoutes');
 
 require('dotenv').config();
 

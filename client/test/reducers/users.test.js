@@ -1,5 +1,5 @@
 import expect from 'expect';
-import users from '../../reducers/users';
+import users from '../../reducers/users.reducers';
 import * as actions from '../../actions/userActions';
 import * as types from '../../actions/types';
 

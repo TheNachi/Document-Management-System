@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { Pagination } from 'react-materialize';
-import UsersList from './UsersList';
+import UsersList from './UsersList.components.jsx';
 import { fetchUsers, deleteUser } from '../../actions/userActions';
 
 class UsersPage extends React.Component {

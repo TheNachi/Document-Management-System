@@ -1,6 +1,6 @@
-import userRouter from './user';
-import roleRouter from './role';
-import documentRouter from './document';
-import swaggerRouter from './swagger';
+import userRouter from './userRoutes';
+import roleRouter from './roleRoutes';
+import documentRouter from './documentRoutes';
+import swaggerRouter from './swaggerRoutes';
 
 export { userRouter, documentRouter, roleRouter, swaggerRouter };

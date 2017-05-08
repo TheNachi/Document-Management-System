@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pagination } from 'react-materialize';
-import DocumentCard from './DocumentCard';
+import DocumentCard from './DocumentCard.components.jsx';
 
 export default function 
 DocumentsList({ documents, deleteDocument, currentUser }) {

@@ -1,5 +1,5 @@
 import expect from 'expect';
-import documents from '../../reducers/documents';
+import documents from '../../reducers/documents.reducers';
 import * as actions from '../../actions/documentActions';
 import * as types from '../../actions/types';
 

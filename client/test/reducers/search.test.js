@@ -1,5 +1,5 @@
 import expect from 'expect';
-import search from '../../reducers/search';
+import search from '../../reducers/search.reducers';
 import * as actions from '../../actions/searchActions';
 
 describe('Search Reducer', () => {

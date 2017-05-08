@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import expect from 'expect';
-import App from '../../components/App';
-import NavigationBar from '../../components/common/NavigationBar';
+import App from '../../components/App.components.jsx';
+import NavigationBar from '../../components/common/NavBar.components.jsx';
 
 describe('App Component', () => {
   it('renders without crashing', () => {

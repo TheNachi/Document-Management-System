@@ -1,6 +1,6 @@
 import express from 'express';
-import Users from '../controllers/users';
-import Documents from '../controllers/documents';
+import Users from '../controllers/usersController';
+import Documents from '../controllers/documentsControllers';
 import auth from '../middlewares/auth';
 
 const userRouter = express.Router();

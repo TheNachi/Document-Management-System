@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
-import { User, Role, ExpiredToken } from '../models';
+import { User, Role, ExpiredToken } from '../models/';
 import Helper from '../helpers/paginateHelper';
-import UsersHelper from '../helpers/helper';
+import UsersHelper from '../helpers/userHelper';
 
 const Users = {
 

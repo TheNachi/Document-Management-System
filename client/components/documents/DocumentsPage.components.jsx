@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import toastr from 'toastr';
 import { Pagination } from 'react-materialize';
-import DocumentsList from './DocumentList';
+import DocumentsList from './DocumentList.components.jsx';
 import { fetchDocuments, deleteDocument } from '../../actions/documentActions';
 import { searchDocuments } from '../../actions/searchActions';
-import Search from '../common/Search';
+import Search from '../common/Search.components.jsx';
 
 class DocumentsPage extends React.Component {
   constructor() {

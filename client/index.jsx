@@ -6,10 +6,10 @@ import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import jwt from 'jsonwebtoken';
 import 'babel-polyfill';
-import routes from './routes';
+import routes from './routes.jsx';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import * as types from './actions/types';
-import rootReducer from './reducers';
+import rootReducer from './reducers/index.reducers';
 
 require('./styles/styles.scss');
 

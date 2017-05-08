@@ -1,5 +1,5 @@
 import React from 'react';
-import UserRow from './UserRow';
+import UserRow from './UserRow.components.jsx';
 
 export default function UsersList({ users, deleteUser, auth }) {
   const userRows = users.map(user =>
