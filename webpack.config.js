@@ -9,7 +9,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.(js|jsx)$/,
         loader: ['babel-loader'],
         exclude: /node_modules/,
         query: {
@@ -38,7 +38,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.css', '.js']
+    extensions: ['', '.css', '.js', '.jsx']
   },
   output: {
     path: path.join(__dirname, 'client/dist/'),
