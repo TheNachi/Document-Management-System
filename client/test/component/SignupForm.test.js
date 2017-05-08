@@ -14,7 +14,7 @@ function setup() {
   return mount(<SignupForm {...props} />);
 }
 
-describe('LoginForm Test', () => {
+describe('Signup Form', () => {
   it('should render self', () => {
     const wrapper = setup();
     expect(wrapper.length).toEqual(1);

@@ -4,7 +4,7 @@ import expect from 'expect';
 import App from '../../components/App';
 import NavigationBar from '../../components/common/NavigationBar';
 
-describe(' Test for App Component', () => {
+describe('App Component', () => {
   it('renders without crashing', () => {
     shallow(<App />);
   });

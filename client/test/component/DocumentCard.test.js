@@ -13,7 +13,7 @@ function setup() {
   return mount(<DocumentCard {...props} />);
 }
 
-describe('DocumentCard Test', () => {
+describe('DocumentCard', () => {
   it('renders a row div', () => {
     const wrapper = setup();
     expect(wrapper.find('.row')).toExist;

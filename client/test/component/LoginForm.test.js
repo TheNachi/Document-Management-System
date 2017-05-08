@@ -14,7 +14,7 @@ function setup() {
   return mount(<LoginForm {...props} />);
 }
 
-describe('LoginForm Test', () => {
+describe('LoginForm', () => {
   it('renders form and h1', () => {
     const wrapper = setup();
     expect(wrapper.find('form')).toExist;

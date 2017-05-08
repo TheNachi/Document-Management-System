@@ -15,8 +15,8 @@ function setup(saving) {
   return shallow(<DocumentForm {...props} />);
 }
 
-describe('DocumentForm Test', () => {
-  it('renders form and h5', () => {
+describe('DocumentForm', () => {
+  it('renders form and h5 heading', () => {
     const wrapper = setup(false);
     expect(wrapper.find('form').length).toBe(1);
     expect(wrapper.find('h5').text()).toEqual('Create/Update a Document');
