@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 node_js: "6"
-script: npm test
+
 services:
   - postgresql
 before_install:
@@ -14,7 +14,9 @@ before_install:
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
+ before_script:
  - NODE_ENV=test sequelize db:migrate
-after_success: npm run coverage
-env:
+ script: npm test
+ after_success: npm run coverage
+ env:
   - MY_SECRET=SOMESECRETCODELIKETHAT
