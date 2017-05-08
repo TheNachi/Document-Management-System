@@ -6,7 +6,7 @@ script: npm test
 services:
   - postgresql
 before_script:
-  - psql -c 'create database "document-management-system-test";' -U Muna-Ugorji
+  - psql -c 'create database "dms-test";' -U postgres
 before_install:
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
