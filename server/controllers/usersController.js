@@ -136,7 +136,7 @@ const Users = {
         res.status(201).send({ token, expiresIn: 86400, user });
       } else {
         res.status(401)
-        .send({
+        .json({
           message: 'Please enter a valid username/email or password to log in'
         });
       }

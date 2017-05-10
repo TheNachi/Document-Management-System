@@ -17,6 +17,8 @@ class NavigationBar extends React.Component {
         <div className="nav-wrapper container">
           <Link to="/app/" className="brand-logo">Document Management System</Link>
           <ul className="right hide-on-med-and-down" id="mobile-demo">
+            {isAuthenticated && <li><a href="/doc">Api Documentation</a>
+            </li>}
             <li><Link to="/app/">
               {isAuthenticated ?
                 <span>Documents</span> : <span>Home</span>}</Link></li>

@@ -31,17 +31,17 @@ class LoginPage extends React.Component {
         () => {
           this.context.router.push('/app/');
         },
-        ({ data }) => {
+        (data) => {
           const errors = {};
-          errors.form = data.message;
+          errors.form = data.response.data.message;
           this.setState({ errors });
         }
       );
     }
   }
 
-  onChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {

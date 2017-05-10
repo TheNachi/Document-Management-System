@@ -112,7 +112,7 @@ userRouter.route('/users')
      *            items:
      *              $ref: '#/definitions/User'
      */
-    .get(auth.verifyToken, Users.list)
+    .get(auth.verifyToken, auth.permitAdmin, Users.list)
     /**
      * @swagger
      * /users:
@@ -224,7 +224,7 @@ userRouter.route('/users/:id')
 
   /**
    * @swagger
-   * /api/v1/users/login:
+   * /api/users/login:
    *   post:
    *     description: Logs in a user
    *     tags:
@@ -232,11 +232,6 @@ userRouter.route('/users/:id')
    *     produces:
    *      - application/json
    *     parameters:
-   *       - name: Authorization
-   *         in: header
-   *         description: an authorization header
-   *         required: true
-   *         type: string
    *       - name: body
    *         description: User object
    *         in:  body
