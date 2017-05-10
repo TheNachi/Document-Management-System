@@ -15,5 +15,5 @@ before_install:
  - sudo dpkg -i google-chrome*.deb
 before_script: NODE_ENV=test sequelize db:migrate
 script: npm test
-after_success: npm run coverage
+after_success: cat ./coverage/lcov.info | coveralls
 env: MY_SECRET=SOMESECRETCODELIKETHAT
