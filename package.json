@@ -10,8 +10,8 @@
     "test": "NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli.js cover _mocha -- server/tests/**/*.test.js testSetup.js client/test/**/*.test.js --timeout 30000",
     "client:test:e2e": "./node_modules/.bin/nightwatch --config nightwatch.config.js",
     "client:test": "mocha --reporter progress testSetup.js client/test/**/*.test.js",
-    "cover": "rm -rf coverage/ && NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec server/tests/**/*.test.js",
-    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls",
+    "cover": "rm -rf coverage/ && NODE_ENV=test babel-node ./node_modules/babel-istanbul/lib/cli.js cover _mocha -- -R spec server/tests/**/*.test.js",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "webpack": "webpack --config ./webpack.config.js"
   },
   "repository": {
