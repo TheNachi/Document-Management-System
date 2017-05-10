@@ -47,7 +47,7 @@ class ProfileForm extends Component {
           <form className="col s12" method="post" onSubmit={this.onSubmit}>
             <Row>
               <Input
-                label="First Name"
+                placeholder="First Name"
                 s={6}
                 name="firstName"
                 value={this.state.firstName}
@@ -55,7 +55,7 @@ class ProfileForm extends Component {
                 required
               />
               <Input
-                label="Last Name"
+                placeholder="Last Name"
                 s={6}
                 name="lastName"
                 value={this.state.lastName}
@@ -63,7 +63,7 @@ class ProfileForm extends Component {
                 required
               />
               <Input
-                label="Username"
+                placeholder="Username"
                 s={6}
                 name="username"
                 value={this.state.username}
@@ -71,7 +71,7 @@ class ProfileForm extends Component {
                 required
               />
               <Input
-                label="Email"
+                placeholder="Email"
                 s={6}
                 name="email"
                 value={this.state.email}
@@ -79,7 +79,7 @@ class ProfileForm extends Component {
                 required
               />
               <Input
-                label="Password"
+                placeholder="Password"
                 s={6}
                 name="password"
                 type="password"

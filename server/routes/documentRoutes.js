@@ -190,7 +190,7 @@ documentRouter.route('/documents/:id')
      *            items:
      *              $ref: '#/definitions/Document'
      */
-    .delete(auth.verifyToken, Documents.destroy);
+    .delete(auth.verifyToken, auth.permitOwner, Documents.destroy);
 
     /**
      * @swagger

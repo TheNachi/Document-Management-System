@@ -11,20 +11,13 @@ class LandingPage extends React.Component {
         {!isAuthenticated &&
           <div className="container" id="hero-text-container">
             <div className="row">
-              <div className="col s12 center-align">
+              <div className="col s12 center-align backgrd">
                 <h3 id="hero-title" itemProp="description">
-                  <span className="bold" >{'Welcome to Document Management System - '}</span>
-                  <span className="thin">
-                  Manage your documents in an organized way. Create a document,
-                  edit it and share it with other users.</span>
+                  <span className="bold" >{'Welcome to Document Management System'}</span>
                 </h3>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col s12">
-                <div className="center-align">
-                    <a href="/doc" className="btn btn-large create-list-link hero-btn" >Documentation</a>
-                </div>
+                <h4><span className="thin">
+                  Manage your documents in an organized way. Create a document,
+                  edit it and share it with other users.</span></h4>
               </div>
             </div>
           </div>}

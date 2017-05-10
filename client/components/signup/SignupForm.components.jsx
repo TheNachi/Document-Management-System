@@ -8,7 +8,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
       <h4>Sign Up</h4>
       <Row>
         <Input
-          label = "UserName"
+          placeholder = "UserName"
           s={12}
           validate
           placeholder="UserName"
@@ -18,7 +18,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="username"
         />
         <Input
-          label="First Name"
+          placeholder="First Name"
           s={6}
           validate
           placeholder="First Name"
@@ -28,7 +28,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="firstName"
         />
         <Input
-          label="Last Name"
+          placeholder="Last Name"
           s={6}
           validate
           placeholder="Last Name"
@@ -38,8 +38,8 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="lastName"
         />
         <Input
-          label="Email"
-          s={6}
+          placeholder="Email"
+          s={12}
           validate
           placeholder="Email"
           error={errors.email}
@@ -49,7 +49,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="email"
         />
         <Input
-          label="Password"
+          placeholder="Password"
           s={6}
           validate
           placeholder="Password"
@@ -60,7 +60,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           name="password"
         />
         <Input
-          label="Password Confirmation"
+          placeholder="Password Confirmation"
           s={6}
           validate
           placeholder="Password Confirmation"

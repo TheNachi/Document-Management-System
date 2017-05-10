@@ -1,6 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Button } from 'react-materialize';
+import swal from 'sweetalert';
+
+const confirmDeletion = (callback, documentId) => {
+  swal({
+    title: 'Are you sure?',
+    text: 'Would you like to delete this document?',
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#DD6B55',
+    confirmButtonText: 'Yes, delete it!',
+    closeOnConfirm: false,
+    closeOnCancel: false
+  },
+  (deletionConfirmed) => {
+    if (deletionConfirmed) {
+      callback(documentId);
+      swal('Deleted!', 'Your document has been deleted.', 'success');
+    } else {
+      swal('Cancelled!', 'Your document  was not deleted.', 'error');
+    }
+  });
+};
+
+
+
+
 
 export default function DocumentCard({ document, deleteDocument, currentUser }) {
   return (
@@ -14,17 +40,17 @@ export default function DocumentCard({ document, deleteDocument, currentUser }) 
               Published Date :
             <p>{(document.createdAt) ? document.createdAt.split('T')[0] : ''}</p>
             <p> Author:
-                {document.owner.firstName} {document.owner.lastName}</p>
+                { document.owner.firstName } { document.owner.lastName }</p>
           </div>
         </div>
         <div className="card-action">
           <Link to={`/app/document-details/${document.id}`}>
-              Details
+              View
           </Link>
           {currentUser.userId === document.ownerId &&
             <div className="right">
               <Link className="edit" to={`/app/document/${document.id}`}>Edit</Link>
-              <Link to="/app/" onClick={() => deleteDocument(document.id)}>
+              <Link to="/app/" onClick={() => confirmDeletion(deleteDocument, document.id)}>
                 Delete
               </Link>
             </div>}
