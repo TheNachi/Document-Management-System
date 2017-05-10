@@ -42,12 +42,13 @@ class SignupPage extends React.Component {
         () => {
           this.context.router.push('/app/');
         },
-        ({ data }) => {
-          console.log(data, 'I Data');
-          const errors = {};
-          errors.form = data.response.data.message;
-          this.setState({ errors });
-        }
+        // ({ data }) => {
+        //   console.log(data, 'I Data');
+        //   const errors = {};
+        //   errors.form = data.response.data.message;
+        //   this.setState({ errors });
+        // }
+        err => this.setState({ errors: err.response.data.errors })
       );
     }
   }

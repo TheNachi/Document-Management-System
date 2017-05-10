@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import toastr from 'toastr';
-import { Pagination } from 'react-materialize';
+import { Pagination, Button } from 'react-materialize';
 import DocumentsList from './DocumentList.components.jsx';
 import { fetchDocuments, deleteDocument } from '../../actions/documentActions';
 import { searchDocuments } from '../../actions/searchActions';
@@ -24,9 +24,9 @@ class DocumentsPage extends React.Component {
   }
 
   deleteDoc(id) {
-  this.props.deleteDocument(id)
+    this.props.deleteDocument(id)
       .then(res => toastr.success('Document deleted successfully!'));
-}
+  }
 
   handleSearch(e) {
     e.preventDefault();
@@ -53,9 +53,11 @@ class DocumentsPage extends React.Component {
           <div className="col s7 push-s4 backgrd">
             <Search onChange={this.handleSearch} />
           </div>
+
           <div className="col s5 pull-s7" id="createdocument">
-            <Link className="btn create-list-link blue-grey darken-1 hero-btn" to="/app/document">
-              Add Document
+            
+            <Link className=" create-list-link" to="/app/document">
+              <Button floating large className='blue-grey darken-1' waves='light' icon='add' />
             </Link>
           </div>
         </div>

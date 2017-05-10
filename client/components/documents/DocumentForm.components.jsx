@@ -8,6 +8,7 @@ const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
       <form>
         <h5>Create/Update a Document</h5>
         <Row>
+          <p style={{ color: '#F44336' }}>{errors.title}</p>
           <Input
             placeholder="Title"
             s={12}
@@ -18,6 +19,7 @@ const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
             error={errors.title}
             id="title"
           />
+          <p style={{ color: '#F44336' }}>{errors.content}</p>
           <div className="input-field col s12">
             <TinyMCE
               id="content"
@@ -29,6 +31,7 @@ const DocumentForm = ({ document, onSave, onChange, saving, errors }) => {
               onChange={onChange}
             />
           </div>
+          <p style={{ color: '#F44336' }}>{errors.access}</p>
           <div className="input-field col s6">
             <select
               style={{ display: 'block' }}

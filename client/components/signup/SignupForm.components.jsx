@@ -7,6 +7,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
       <form onSubmit={onSubmit}>
       <h4>Sign Up</h4>
       <Row>
+        {/* // {errors.form && <div style={{ color: '#F44336' }}>{errors.form}</div>}*/}
         <Input
           placeholder = "UserName"
           s={12}
@@ -17,6 +18,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           value={userProps.username}
           name="username"
         />
+         <p style={{ color: '#F44336' }}>{errors.username}</p>
         <Input
           placeholder="First Name"
           s={6}
@@ -27,6 +29,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           value={userProps.firstName}
           name="firstName"
         />
+        <p style={{ color: '#F44336' }}>{errors.firstName}</p>
         <Input
           placeholder="Last Name"
           s={6}
@@ -37,6 +40,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           value={userProps.lastName}
           name="lastName"
         />
+        <p style={{ color: '#F44336' }}>{errors.lastName}</p>
         <Input
           placeholder="Email"
           s={12}
@@ -48,6 +52,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           type="email"
           name="email"
         />
+        <p style={{ color: '#F44336' }}>{errors.email}</p>
         <Input
           placeholder="Password"
           s={6}
@@ -59,6 +64,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           type="password"
           name="password"
         />
+        <p style={{ color: '#F44336' }}>{errors.password}</p>
         <Input
           placeholder="Password Confirmation"
           s={6}
@@ -70,6 +76,7 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
           type="password"
           name="passwordConfirmation"
         />
+        <p style={{ color: '#F44336' }}>{errors.passwordConfirmation}</p>
         <Input
           value="signup"
           className="btn waves-effect waves-light"

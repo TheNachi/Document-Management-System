@@ -35,7 +35,7 @@ class LoginPage extends React.Component {
           const errors = {};
           errors.form = data.response.data.message;
           this.setState({ errors });
-        }
+        },
       );
     }
   }

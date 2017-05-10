@@ -53,7 +53,7 @@ nav .nav-wrapper, .nav-holder {
 }
 
 .backgrd {
-  background: rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, .6);
   padding: 20px;
   box-shadow: 2px 2px 4px #888;
   margin-top: 30px;
@@ -79,4 +79,13 @@ nav .nav-wrapper, .nav-holder {
 
 .heading {
   color: white;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.btn-in {
+  margin-top: 30px;
 }
