@@ -43,12 +43,12 @@ class DocumentsPage extends React.Component {
 
   render() {
     const documentSearchResult = this.props.search;
-    const renderedDocuments = documentSearchResult.length > 0
+    const renderedDocuments = this.state.query
       ? documentSearchResult : this.props.documents;
     const { totalCount, pageSize, currentPage, pageCount } = this.props.metadata;
     return (
       <div>
-        <h1>Document</h1>
+        <h1>Documents</h1>
         <div className="row">
           <div className="col s7 push-s4 backgrd">
             <Search onChange={this.handleSearch} />

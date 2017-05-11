@@ -31,4 +31,11 @@ describe('DocumentForm', () => {
     const wrapper = setup(true);
     expect(wrapper.find('Input').at(1).props().value).toBe('Saving...');
   });
+  it('should take props', () => {
+    const wrapper = setup();
+    expect(wrapper.props().errors).toExist;
+    expect(wrapper.props().userProps).toExist;
+    expect(wrapper.props().onChange).toExist;
+    expect(wrapper.props().onSubmit).toExist;
+  });
 });
