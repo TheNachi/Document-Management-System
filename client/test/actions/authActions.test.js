@@ -18,7 +18,7 @@ describe('Login Action', () => {
       nock('http://localhost.com/')
         .post('users/login', user)
         .reply(200, {
-          body: { token: 'fdsffsfsdfsd', user: { userId: 2, roleId: 2 } } });
+          body: { token: 'dshciuskj', user: { userId: 2, roleId: 2 } } });
 
       const expectedActions = [{ type: types.SET_CURRENT_USER,
         user }];

@@ -57,11 +57,11 @@ describe('User Actions', () => {
   it('creates ADD_USER when sign up has been done',
     () => {
       const user = {
-        username: 'awa',
-        firstName: 'awa',
-        lastName: 'awa',
-        email: 'awa',
-        password: 'awa' };
+        username: 'oluchi',
+        firstName: 'oluchi',
+        lastName: 'ugorji',
+        email: 'oluchiugorji@yahoo.com',
+        password: 'oluchiugorji' };
       nock('http://localhost.com/')
         .post('/users', user)
         .reply(200, {
@@ -84,7 +84,7 @@ describe('User Actions', () => {
       nock('http://localhost.com/')
         .post('/users/login', user)
         .reply(200, {
-          body: { token: 'fdsffsfsdfsd', user: { userId: 2, roleId: 2 } } });
+          body: { token: 'hcikdshcuwi', user: { userId: 2, roleId: 2 } } });
 
       const expectedActions = [{ type: types.SET_CURRENT_USER,
         user }];

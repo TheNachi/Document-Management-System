@@ -1,7 +1,7 @@
 import expect from 'expect';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import DocumentForm from '../../components/documents/DocumentForm.components.jsx';
+import DocumentForm from '../../components/forms/DocumentForm.components.jsx';
 
 function setup(saving) {
   const props = {
