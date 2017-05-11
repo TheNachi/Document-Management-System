@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import jwt from 'jsonwebtoken';
 import 'babel-polyfill';
 import routes from './routes.jsx';
-import setAuthorizationToken from './utils/setAuthorizationToken';
+import setAuthorizationToken from './utilities/setAuthorizationToken';
 import * as types from './actions/types';
 import rootReducer from './reducers/index.reducers';
 
