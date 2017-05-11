@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import setAuthorizationToken from '../utils/setAuthorizationToken';
+import setAuthorizationToken from '../utilities/setAuthorizationToken';
 import * as types from './types';
 
 /**
@@ -9,8 +9,7 @@ import * as types from './types';
  * @returns {Object} function
  */
 export default function userSignupRequest(userData) {
-  return (dispatch) => {
-    return axios.post('/users', userData)
+  return dispatch => axios.post('/users', userData)
       .then((res) => {
         const token = res.data.token;
         window.localStorage.setItem('jwtToken', token);
@@ -20,6 +19,5 @@ export default function userSignupRequest(userData) {
           user: jwt.decode(token)
         });
       });
-  };
 }
 

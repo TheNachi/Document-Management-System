@@ -8,8 +8,7 @@ import * as types from './types';
  */
 export function fetchUsers(offset) {
   const pageOffset = offset || 0;
-  return (dispatch) => {
-    return axios.get('/users')
+  return dispatch => axios.get(`/users?offset=${pageOffset}`)
       .then((res) => {
         dispatch({
           type: types.SET_USERS,
@@ -20,7 +19,6 @@ export function fetchUsers(offset) {
           pagination: res.data.pagination
         });
       });
-  };
 }
 
 /**
@@ -29,13 +27,11 @@ export function fetchUsers(offset) {
  * @returns {Object} function
  */
 export function fetchUser(id) {
-  return (dispatch) => {
-    return axios.get(`/users/${id}`)
+  return dispatch => axios.get(`/users/${id}`)
       .then(res => dispatch({
         type: types.USER_FETCHED,
         user: res.data,
       }));
-  };
 }
 
 /**
@@ -45,13 +41,11 @@ export function fetchUser(id) {
  * @returns {Object} function
  */
 export function updateUser(user, userId) {
-  return (dispatch) => {
-    return axios.put(`/users/${userId}`, user)
+  return dispatch => axios.put(`/users/${userId}`, user)
       .then(res => dispatch({
         type: types.USER_UPDATED,
         user: res.data,
       }));
-  };
 }
 
 /**
@@ -60,12 +54,10 @@ export function updateUser(user, userId) {
  * @returns {Object} function
  */
 export function deleteUser(id) {
-  return (dispatch) => {
-    return axios.delete(`/users/${id}`)
+  return dispatch => axios.delete(`/users/${id}`)
       .then(res => dispatch({
         type: types.USER_DELETED,
         userId: id,
       }));
-  };
 }
 

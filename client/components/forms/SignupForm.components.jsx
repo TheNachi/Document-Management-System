@@ -7,7 +7,6 @@ const SignupForm = ({ onChange, userProps, onSubmit, errors }) => {
       <form onSubmit={onSubmit}>
       <h4>Sign Up</h4>
       <Row>
-        {/* // {errors.form && <div style={{ color: '#F44336' }}>{errors.form}</div>}*/}
         <Input
           placeholder = "UserName"
           s={12}

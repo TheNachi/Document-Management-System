@@ -1,6 +1,13 @@
 import axios from 'axios';
 import * as types from './types';
 
+/**
+ *
+ *
+ * @export
+ * @param {any} documentSearchResult
+ * @returns
+ */
 export function documentsSearched(documentSearchResult) {
   return {
     type: types.SEARCH_RESULTS,
@@ -14,8 +21,7 @@ export function documentsSearched(documentSearchResult) {
  * @returns {Object} function
  */
 export function searchDocuments(queryString) {
-  return (dispatch) => {
-    return axios.get(`/search/documents?q=${queryString}`)
+  return dispatch => axios.get(`/search/documents?q=${queryString}`)
       .then((res) => {
         dispatch(documentsSearched(res.data.rows));
         dispatch({
@@ -23,5 +29,4 @@ export function searchDocuments(queryString) {
           pagination: res.data.pagination
         });
       });
-  };
 }

@@ -33,7 +33,7 @@ const UsersHelper = {
     return jwt.sign({
       userId: user.id,
       roleId: user.roleId
-    }, process.env.MY_SECRET, { expiresIn: 86400 });
+    }, process.env.MY_SECRET, { expiresIn: 172800 });
   }
 
 };

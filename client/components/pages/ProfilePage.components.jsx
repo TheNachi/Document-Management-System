@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import ProfileForm from './ProfileForm.components.jsx';
+import ProfileForm from '../forms/ProfileForm.components.jsx';
 import getUser, { updateUser } from '../../actions/profileActions';
 
 class ProfilePage extends Component {

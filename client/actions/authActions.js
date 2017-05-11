@@ -1,6 +1,6 @@
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
-import setAuthorizationToken from '../utils/setAuthorizationToken';
+import setAuthorizationToken from '../utilities/setAuthorizationToken';
 import * as types from './types';
 
 

@@ -1,6 +1,12 @@
 import isEmpty from 'lodash/isEmpty';
 
-// Client side validation
+/**
+ *
+ *
+ * @export
+ * @param {any} values
+ * @returns
+ */
 export default function validate(values) {
   const errors = {};
 

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import toastr from 'toastr';
 import { bindActionCreators } from 'redux';
 import validateInput from '../../../server/shared/validations/createDocumentValidation';
-import DocumentForm from './DocumentForm.components.jsx';
+import DocumentForm from '../forms/DocumentForm.components.jsx';
 import * as documentActions from '../../actions/documentActions';
 
 

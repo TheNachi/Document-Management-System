@@ -8,15 +8,13 @@ import * as types from './types';
  * @returns {object} object
  */
 export function saveDocument(data) {
-  return (dispatch) => {
-    return axios.post('/documents', data)
+  return dispatch => axios.post('/documents', data)
        .then((response) => {
          dispatch({
            type: types.ADD_DOCUMENT,
            document: response.data
          });
        });
-  };
 }
 
 /**
@@ -27,8 +25,7 @@ export function saveDocument(data) {
  */
 export function fetchDocuments(offset) {
   const pageOffset = offset || 0;
-  return (dispatch) => {
-    return axios.get(`/documents?offset=${pageOffset}`)
+  return dispatch => axios.get(`/documents?offset=${pageOffset}`)
       .then((res) => {
         dispatch({
           type: types.SET_DOCUMENTS,
@@ -39,7 +36,6 @@ export function fetchDocuments(offset) {
           pagination: res.data.pagination
         });
       });
-  };
 }
 
 
@@ -50,15 +46,13 @@ export function fetchDocuments(offset) {
  * @returns {object} document
  */
 export function fetchDocument(id) {
-  return (dispatch) => {
-    return axios.get(`/documents/${id}`)
+  return dispatch => axios.get(`/documents/${id}`)
       .then((res) => {
         dispatch({
           type: types.DOCUMENT_FETCHED,
           document: res.data,
         });
       });
-  };
 }
 
 /**
@@ -68,15 +62,13 @@ export function fetchDocument(id) {
  * @returns {object} document
  */
 export function updateDocument(data) {
-  return (dispatch) => {
-    return axios.put(`/documents/${data.id}`, data)
+  return dispatch => axios.put(`/documents/${data.id}`, data)
       .then((res) => {
         dispatch({
           type: types.DOCUMENT_UPDATED,
           document: res.data,
         });
       });
-  };
 }
 
 
@@ -87,13 +79,11 @@ export function updateDocument(data) {
  * @returns {object} document id
  */
 export function deleteDocument(id) {
-  return (dispatch) => {
-    return axios.delete(`/documents/${id}`)
+  return dispatch => axios.delete(`/documents/${id}`)
       .then((res) => {
         dispatch({
           type: types.DOCUMENT_DELETED,
           documentId: id,
         });
       });
-  };
 }

@@ -11,8 +11,8 @@ const confirmDeletion = (callback, documentId) => {
     showCancelButton: true,
     confirmButtonColor: '#DD6B55',
     confirmButtonText: 'Yes, delete it!',
-    closeOnConfirm: false,
-    closeOnCancel: false
+    closeOnConfirm: true,
+    closeOnCancel: true
   },
   (deletionConfirmed) => {
     if (deletionConfirmed) {
@@ -23,10 +23,6 @@ const confirmDeletion = (callback, documentId) => {
     }
   });
 };
-
-
-
-
 
 export default function DocumentCard({ document, deleteDocument, currentUser }) {
   return (

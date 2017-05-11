@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import toastr from 'toastr';
 import { bindActionCreators } from 'redux';
 import * as documentActions from '../../actions/documentActions';
-import DocumentDetails from './DocumentDetails.components.jsx';
+import DocumentDetails from '../documents/DocumentDetails.components.jsx';
 
 class DocumentDetailsPage extends React.Component {
   constructor() {

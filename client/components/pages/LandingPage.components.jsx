@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import DocumentsPage from './documents/DocumentsPage.components.jsx';
+import DocumentsPage from '../pages/DocumentsPage.components.jsx';
 
 class LandingPage extends React.Component {
   render() {
