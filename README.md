@@ -61,7 +61,7 @@ The frontend was built with the [react](https://facebook.github.io/react/) and [
 - Start the app with `$ npm start`
 - Login, Sign Up and start creating Documents once the app opens up on the browser
 
-###Testing with Postman
+### Testing with Postman
 ---
 
 You can read the Documentation [here](https://documentmanagementsys.herokuapp.com/doc) and test out the routes on postman
