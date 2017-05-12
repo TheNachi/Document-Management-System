@@ -7,3 +7,5 @@ dist
 .nyc_output
 .dist
 screenshots
+selenium-debug.log
+.vscode
