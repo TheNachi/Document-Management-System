@@ -27,7 +27,6 @@ class SignupPage extends React.Component {
 
   isValid() {
     const { errors, isValid } = validateInput(this.state);
-    console.log(validateInput(this.state));
     if (!isValid) {
       this.setState({ errors });
     }
@@ -42,12 +41,6 @@ class SignupPage extends React.Component {
         () => {
           this.context.router.push('/app/');
         },
-        // ({ data }) => {
-        //   console.log(data, 'I Data');
-        //   const errors = {};
-        //   errors.form = data.response.data.message;
-        //   this.setState({ errors });
-        // }
         err => this.setState({ errors: err.response.data.errors })
       );
     }
@@ -55,7 +48,6 @@ class SignupPage extends React.Component {
 
   render() {
     const { errors } = this.state;
-    console.log('err', this.state.errors)
     return (
       <SignupForm
         onChange={this.onChange}
