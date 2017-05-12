@@ -1,0 +1,99 @@
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+
+/* Landing Page */
+
+#hero-title {
+  line-height: 1.5em;
+  margin-top: 10%;
+}
+.hero-btn {
+  margin: 10px;
+}
+#hero {
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+}
+h2 {
+  font-size: 2.92rem;
+}
+
+#hero-text-container .hero-btn {
+  min-width: 190px;
+}
+
+nav .nav-wrapper, .nav-holder {
+  background: #546e7a !important;
+}
+
+.card {
+  min-height:400px;
+}
+
+.backgrd {
+  background: rgba(255, 255, 255, .6);
+  padding: 20px;
+  box-shadow: 2px 2px 4px #888;
+  margin-top: 30px;
+}
+
+.document-content {
+  height: 90px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.qBox {
+  box-shadow: 10px 10px 30px #333;
+}
+
+.brand-logo {
+  margin-left: -80px;
+}
+
+.card-title {
+  height: 60px;
+}
+
+.heading {
+  color: white;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.btn-in {
+  margin-top: 30px;
+}
+
+::-webkit-input-placeholder {
+  color: grey;
+  transition: opacity 250ms ease-in-out;
+}
+:focus::-webkit-input-placeholder {
+  opacity: 0.5;
+}
