@@ -61,6 +61,12 @@ The frontend was built with the [react](https://facebook.github.io/react/) and [
 - Start the app with `$ npm start`
 - Login, Sign Up and start creating Documents once the app opens up on the browser
 
+###Testing with Postman
+---
+
+You can read the Documentation [here](https://documentmanagementsys.herokuapp.com/doc) and test out the routes on postman
+
+
 ## Endpoints
 Here's the collection of routes. They can be checked out on Postman
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/89b63da4a2a0c98485e7)
@@ -96,15 +102,6 @@ PUT /roles/:id               |   Edit a Role.
 DELETE /roles/:id               |   Delete a Role.
 
 It should be noted that the endpoints for roles here are only available to the Admin.
-
-### Technologies Used
----
-- JavaScript (ES6)
-- Node.js
-- Express
-- Postgresql
-- React/Redux
-- Sequelize ORM.
 
 #### Contributing
 ---
